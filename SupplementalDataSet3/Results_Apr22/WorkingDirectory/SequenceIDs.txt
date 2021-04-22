@@ -1,0 +1,2 @@
+0_0: Mycobacterium_tuberculosis_Type2_DHS
+1_0: Arabidopsis_thaliana_DHS1

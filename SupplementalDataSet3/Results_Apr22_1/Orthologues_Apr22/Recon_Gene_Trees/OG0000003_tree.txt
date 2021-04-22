@@ -1,0 +1,1 @@
+((SupplementalDataSet3_Populus_trichocarpa_Potri.002G099200.1:0,SupplementalDataSet3_1_Populus_trichocarpa_Potri.002G099200.1:0)n1:0.021918,(SupplementalDataSet3_1_Populus_trichocarpa_Potri.005G162800.1:0,SupplementalDataSet3_Populus_trichocarpa_Potri.005G162800.1:0)n2:0.021918)n0;

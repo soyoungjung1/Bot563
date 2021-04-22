@@ -1,0 +1,16 @@
+0: Arabidopsis_thaliana.fasta
+1: Brassica_rapa.fasta
+2: Chlamydomonas_reinhardtii.fasta
+3: Cucumis_sativus.fasta
+4: Gossypium_raimondii.fasta
+5: Marchantia_polymorpha.fasta
+6: Medicago_truncatula.fasta
+7: Mycobacterium_tuberculosis.fasta
+8: Oriza_sativa.fasta
+9: Populus_trichocarpa.fasta
+10: Selaginella_moellendorffii.fasta
+11: Solanum_lycopersicum.fasta
+12: Sorghum_bicolor.fasta
+13: Spinacia_oleracea.fasta
+14: Theobroma_cacao.fasta
+15: Volvox_carteri.fasta

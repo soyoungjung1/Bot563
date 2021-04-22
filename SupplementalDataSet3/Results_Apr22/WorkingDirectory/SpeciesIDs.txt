@@ -1,0 +1,2 @@
+0: 1.fasta
+1: 2.fasta

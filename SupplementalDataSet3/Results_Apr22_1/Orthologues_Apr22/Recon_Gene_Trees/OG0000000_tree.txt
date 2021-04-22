@@ -1,0 +1,1 @@
+((SupplementalDataSet3_1_Brassica_rapa_Brara.A00448.1:0,SupplementalDataSet3_Brassica_rapa_Brara.A00448.1:0)n1:0.047355,(SupplementalDataSet3_Arabidopsis_thaliana_DHS2:0,SupplementalDataSet3_1_Arabidopsis_thaliana_DHS2:0)n2:0.047355)n0;

@@ -1,0 +1,50 @@
+# cline: mcl /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_1/WorkingDirectory/OrthoFinder_v2.2.7_graph.txt "-I" "1.5" "-o" "/Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_1/WorkingDirectory/clusters_OrthoFinder_v2.2.7_I1.5.txt" "-te" "1" "-V" "all"
+(mclheader
+mcltype matrix
+dimensions 92x42
+)
+(mclmatrix
+begin
+0  2 32 48 78 $
+1  15 30 61 76 $
+2  19 20 65 66 $
+3  25 26 71 72 $
+4  0 46 $
+5  1 47 $
+6  3 49 $
+7  4 50 $
+8  5 51 $
+9  6 52 $
+10 7 53 $
+11 8 54 $
+12 9 55 $
+13 10 56 $
+14 11 57 $
+15 12 58 $
+16 13 59 $
+17 14 60 $
+18 16 62 $
+19 17 63 $
+20 18 64 $
+21 21 67 $
+22 22 68 $
+23 23 69 $
+24 24 70 $
+25 27 73 $
+26 28 74 $
+27 29 75 $
+28 31 77 $
+29 33 79 $
+30 34 80 $
+31 35 81 $
+32 36 82 $
+33 37 83 $
+34 38 84 $
+35 39 85 $
+36 40 86 $
+37 41 87 $
+38 42 88 $
+39 43 89 $
+40 44 90 $
+41 45 91 $
+)

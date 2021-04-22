@@ -1,0 +1,10 @@
+# cline: mcl /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22/WorkingDirectory/OrthoFinder_v2.2.7_graph.txt "-I" "1.5" "-o" "/Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22/WorkingDirectory/clusters_OrthoFinder_v2.2.7_I1.5.txt" "-te" "1" "-V" "all"
+(mclheader
+mcltype matrix
+dimensions 2x2
+)
+(mclmatrix
+begin
+0 0 $
+1 1 $
+)
