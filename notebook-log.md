@@ -1231,8 +1231,9 @@ To get the output file in the fasta format, you can just edit the -OUTPUT=FASTA 
 (clustalw2) soyoungjung@Soyoungs-MacBook-Pro Bot563 % clustalw2 -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned2.fasta -OUTPUT=FASTA
 ```
 
-#Orthofinder
-##Install the orthofinder
+
+# Orthofinder
+## Install the orthofinder
 ```
 conda install -c bioconda orthofinder
 ```
@@ -1319,7 +1320,7 @@ CITATION:
 ```
 So it seems like orthofinder is installed well.
 
-##Run the orthofinder
+## Run the orthofinder
 
 And then, I run the orthofinder using: 
 ```
@@ -1573,7 +1574,7 @@ tree = read.tree(file="/Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDa
 plot(tree)
 ```
 
-Within the 46 genes that I run the orthofinder, 45 genes were grouped but 1 gene "Theobroma_cacao_Thecc1EG001069t1".
+Within the 46 genes that I run the orthofinder, 45 genes were grouped but 1 gene of "Theobroma_cacao_Thecc1EG001069t1".
 
 
 
