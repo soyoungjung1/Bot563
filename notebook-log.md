@@ -1615,6 +1615,7 @@ System: Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz, 4 cores, 8 GB RAM
 ```
 So it seems like raxml was installed well.
 
+## Run the RAxML-ng
 I copied my alligned data set into the same folder (software/raxml-ng_v1 folder)
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % cp ~/Documents/Bot563/Bot563/grouped_genes_aligned.fasta .
