@@ -11,11 +11,15 @@ I tried to run the ClustalW:
 ``` (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % clustalw-2.1-macosx/clustalw2 -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP```
 
 But then, this error message came out:
-```zsh: bad CPU type in executable: clustalw-2.1-macosx/clustalw2```
+```
+zsh: bad CPU type in executable: clustalw-2.1-macosx/clustalw2
+```
 
 So based on the Beth's comment, I rerun
-```conda activate
-conda create -n clustalw2 -c biobuilds -y clustalw```
+```
+conda activate
+conda create -n clustalw2 -c biobuilds -y clustalw
+```
 
 and then I was able to run the clustalw
 ```
