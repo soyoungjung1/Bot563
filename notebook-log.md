@@ -1,6 +1,5 @@
-#ClustalW
-
-##Download the ClustalW
+# ClustalW
+## Download the ClustalW
 
 Downloaded ClustalW file clustalw-2.1-macosx.dmg and copied the folder into Document/software
 
