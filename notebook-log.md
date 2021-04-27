@@ -14,13 +14,13 @@ But then, this error message came out:
 zsh: bad CPU type in executable: clustalw-2.1-macosx/clustalw2
 ```
 
-So based on the Beth's comment, I rerun
+So based on the Beth's comment on Slack, I rerun:
 ```
 conda activate
 conda create -n clustalw2 -c biobuilds -y clustalw
 ```
 
-and then I was able to run the clustalw
+and then I was able to run the clustalw:
 ```
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
@@ -1671,7 +1671,46 @@ Elapsed time: 0.011 seconds
 ```
 
 It says that "Alignment can be successfully read by RAxML-NG.", so the input file seems like ok.
-But when I tried to check the alignment file with output=phylip, it said that Alignment can be successfully read by RAxML-NG. So make sure the input file was fasta file.
+
+But when I tried to check the alignment file with 'output=phylip', the error message was popped up like:
+```
+[00:00:00] Reading alignment from file: grouped_genes_aligned.fasta
+[00:00:00] Loaded alignment with 45 taxa and 615 sites
+
+ERROR: Sequences 2 and 3 have identical name: Brassica_r
+ERROR: Sequences 1 and 6 have identical name: Arabidopsi
+ERROR: Sequences 2 and 7 have identical name: Brassica_r
+ERROR: Sequences 8 and 9 have identical name: Populus_tr
+ERROR: Sequences 4 and 11 have identical name: Cucumis_sa
+ERROR: Sequences 8 and 12 have identical name: Populus_tr
+ERROR: Sequences 8 and 13 have identical name: Populus_tr
+ERROR: Sequences 10 and 16 have identical name: Solanum_ly
+ERROR: Sequences 18 and 20 have identical name: Oryza_sati
+ERROR: Sequences 18 and 21 have identical name: Oryza_sati
+ERROR: Sequences 19 and 22 have identical name: Sorghum_bi
+ERROR: Sequences 18 and 23 have identical name: Oryza_sati
+ERROR: Sequences 19 and 24 have identical name: Sorghum_bi
+ERROR: Sequences 1 and 26 have identical name: Arabidopsi
+ERROR: Sequences 2 and 27 have identical name: Brassica_r
+ERROR: Sequences 14 and 28 have identical name: Gossypium_
+ERROR: Sequences 15 and 29 have identical name: Theobroma_
+ERROR: Sequences 4 and 30 have identical name: Cucumis_sa
+ERROR: Sequences 17 and 31 have identical name: Medicago_t
+ERROR: Sequences 5 and 32 have identical name: Spinacia_o
+ERROR: Sequences 25 and 33 have identical name: Amborella_
+ERROR: Sequences 14 and 34 have identical name: Gossypium_
+ERROR: Sequences 15 and 35 have identical name: Theobroma_
+ERROR: Sequences 8 and 36 have identical name: Populus_tr
+ERROR: Sequences 4 and 37 have identical name: Cucumis_sa
+ERROR: Sequences 19 and 40 have identical name: Sorghum_bi
+ERROR: Sequences 19 and 41 have identical name: Sorghum_bi
+ERROR: Sequences 18 and 42 have identical name: Oryza_sati
+
+ERROR: Duplicate sequence names found: 28
+
+ERROR: Alignment check failed (see details above)!
+```
+So I think we need to put the fasta file with output=fasta for running the RAxML.
 
 ### Inferring ML trees
 ```
