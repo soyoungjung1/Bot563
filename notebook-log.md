@@ -1,21 +1,24 @@
 #ClustalW
 
+##Download the ClustalW
+
 Downloaded ClustalW file clustalw-2.1-macosx.dmg and copied the folder into Document/software
 
-(base) soyoungjung@Soyoungs-MacBook-Pro Documents % cp Bot563/Bot563/clustalw-2.1-macosx/clustalw2 software
+``` (base) soyoungjung@Soyoungs-MacBook-Pro Documents % cp Bot563/Bot563/clustalw-2.1-macosx/clustalw2 software```
 
-#I tried to 
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % clustalw-2.1-macosx/clustalw2 -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP 
-zsh: bad CPU type in executable: clustalw-2.1-macosx/clustalw2
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda create -n clustalw2 -c biobuilds -y clustalw -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP
+## Running the ClustalW
+I tried to run the ClustalW:
+``` (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % clustalw-2.1-macosx/clustalw2 -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP```
 
-usage: conda [-h] [-V] command ...
-conda: error: unrecognized arguments: -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda activate
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda create -n clustalw2 -c biobuilds -y clustalw -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP
-usage: conda [-h] [-V] command ...
-conda: error: unrecognized arguments: -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda create -n clustalw2 -c biobuilds -y clustalw
+But then, this error message came out:
+```zsh: bad CPU type in executable: clustalw-2.1-macosx/clustalw2```
+
+So based on the Beth's comment, I rerun
+```conda activate
+conda create -n clustalw2 -c biobuilds -y clustalw```
+
+and then I was able to run the clustalw
+```
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
@@ -54,812 +57,1520 @@ Executing transaction: done
 # To deactivate an active environment, use
 #
 #     $ conda deactivate
-
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % clustalw-2.1-macosx/clustalw2 -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP
-zsh: bad CPU type in executable: clustalw-2.1-macosx/clustalw2
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda activate clustalw2 -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP
-
-activate does not accept more than one argument:
-['clustalw2', '-ALIGN', '-INFILE=SupplementalDataSet3.fasta', '-OUTFILE=SupplementalDataSet3-aligned.fasta', '-OUTPUT=PHYLIP']
-
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda activate clustalw2 -ALIGN
-activate does not accept more than one argument:
-['clustalw2', '-ALIGN']
-
-#downloading T-Coffee
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % cd T-COFFEE_distribution_Version_13.45.0.4846264
-(base) soyoungjung@Soyoungs-MacBook-Pro T-COFFEE_distribution_Version_13.45.0.4846264 % ./install all
--------------------------------COPYRIGHT NOTICE------------------------------/
-  ACADEMIC LICENCE AGREEMENT
-
-  ? Centro de Regulacio Genomica and Cedric Notredame  ( 15 Oct 2020 - 17:52). 
-		    GNU GENERAL PUBLIC LICENSE
-		       Version 2, June 1991
-
- Copyright (C) 1989, 1991 Free Software Foundation, Inc.
-                       59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- Everyone is permitted to copy and distribute verbatim copies
- of this license document, but changing it is not allowed.
-
-			    Preamble
-
-  The licenses for most software are designed to take away your
-freedom to share and change it.  By contrast, the GNU General Public
-License is intended to guarantee your freedom to share and change free
-software--to make sure the software is free for all its users.  This
-General Public License applies to most of the Free Software
-Foundation's software and to any other program whose authors commit to
-using it.  (Some other Free Software Foundation software is covered by
-the GNU Library General Public License instead.)  You can apply it to
-your programs, too.
-
-  When we speak of free software, we are referring to freedom, not
-price.  Our General Public Licenses are designed to make sure that you
-have the freedom to distribute copies of free software (and charge for
-this service if you wish), that you receive source code or can get it
-if you want it, that you can change the software or use pieces of it
-in new free programs; and that you know you can do these things.
-
-  To protect your rights, we need to make restrictions that forbid
-anyone to deny you these rights or to ask you to surrender the rights.
-These restrictions translate to certain responsibilities for you if you
-distribute copies of the software, or if you modify it.
-
-  For example, if you distribute copies of such a program, whether
-gratis or for a fee, you must give the recipients all the rights that
-you have.  You must make sure that they, too, receive or can get the
-source code.  And you must show them these terms so they know their
-rights.
-
-  We protect your rights with two steps: (1) copyright the software, and
-(2) offer you this license which gives you legal permission to copy,
-distribute and/or modify the software.
-
-  Also, for each author's protection and ours, we want to make certain
-that everyone understands that there is no warranty for this free
-software.  If the software is modified by someone else and passed on, we
-want its recipients to know that what they have is not the original, so
-that any problems introduced by others will not reflect on the original
-authors' reputations.
-
-  Finally, any free program is threatened constantly by software
-patents.  We wish to avoid the danger that redistributors of a free
-program will individually obtain patent licenses, in effect making the
-program proprietary.  To prevent this, we have made it clear that any
-patent must be licensed for everyone's free use or not licensed at all.
-
-  The precise terms and conditions for copying, distribution and
-modification follow.
-
-		    GNU GENERAL PUBLIC LICENSE
-   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-
-  0. This License applies to any program or other work which contains
-a notice placed by the copyright holder saying it may be distributed
-under the terms of this General Public License.  The "Program", below,
-refers to any such program or work, and a "work based on the Program"
-means either the Program or any derivative work under copyright law:
-that is to say, a work containing the Program or a portion of it,
-either verbatim or with modifications and/or translated into another
-language.  (Hereinafter, translation is included without limitation in
-the term "modification".)  Each licensee is addressed as "you".
-
-Activities other than copying, distribution and modification are not
-covered by this License; they are outside its scope.  The act of
-running the Program is not restricted, and the output from the Program
-is covered only if its contents constitute a work based on the
-Program (independent of having been made by running the Program).
-Whether that is true depends on what the Program does.
-
-  1. You may copy and distribute verbatim copies of the Program's
-source code as you receive it, in any medium, provided that you
-conspicuously and appropriately publish on each copy an appropriate
-copyright notice and disclaimer of warranty; keep intact all the
-notices that refer to this License and to the absence of any warranty;
-and give any other recipients of the Program a copy of this License
-along with the Program.
-
-You may charge a fee for the physical act of transferring a copy, and
-you may at your option offer warranty protection in exchange for a fee.
-
-  2. You may modify your copy or copies of the Program or any portion
-of it, thus forming a work based on the Program, and copy and
-distribute such modifications or work under the terms of Section 1
-above, provided that you also meet all of these conditions:
-
-    a) You must cause the modified files to carry prominent notices
-    stating that you changed the files and the date of any change.
-
-    b) You must cause any work that you distribute or publish, that in
-    whole or in part contains or is derived from the Program or any
-    part thereof, to be licensed as a whole at no charge to all third
-    parties under the terms of this License.
-
-    c) If the modified program normally reads commands interactively
-    when run, you must cause it, when started running for such
-    interactive use in the most ordinary way, to print or display an
-    announcement including an appropriate copyright notice and a
-    notice that there is no warranty (or else, saying that you provide
-    a warranty) and that users may redistribute the program under
-    these conditions, and telling the user how to view a copy of this
-    License.  (Exception: if the Program itself is interactive but
-    does not normally print such an announcement, your work based on
-    the Program is not required to print an announcement.)
-
-These requirements apply to the modified work as a whole.  If
-identifiable sections of that work are not derived from the Program,
-and can be reasonably considered independent and separate works in
-themselves, then this License, and its terms, do not apply to those
-sections when you distribute them as separate works.  But when you
-distribute the same sections as part of a whole which is a work based
-on the Program, the distribution of the whole must be on the terms of
-this License, whose permissions for other licensees extend to the
-entire whole, and thus to each and every part regardless of who wrote it.
-
-Thus, it is not the intent of this section to claim rights or contest
-your rights to work written entirely by you; rather, the intent is to
-exercise the right to control the distribution of derivative or
-collective works based on the Program.
-
-In addition, mere aggregation of another work not based on the Program
-with the Program (or with a work based on the Program) on a volume of
-a storage or distribution medium does not bring the other work under
-the scope of this License.
-
-  3. You may copy and distribute the Program (or a work based on it,
-under Section 2) in object code or executable form under the terms of
-Sections 1 and 2 above provided that you also do one of the following:
-
-    a) Accompany it with the complete corresponding machine-readable
-    source code, which must be distributed under the terms of Sections
-    1 and 2 above on a medium customarily used for software interchange; or,
-
-    b) Accompany it with a written offer, valid for at least three
-    years, to give any third party, for a charge no more than your
-    cost of physically performing source distribution, a complete
-    machine-readable copy of the corresponding source code, to be
-    distributed under the terms of Sections 1 and 2 above on a medium
-    customarily used for software interchange; or,
-
-    c) Accompany it with the information you received as to the offer
-    to distribute corresponding source code.  (This alternative is
-    allowed only for noncommercial distribution and only if you
-    received the program in object code or executable form with such
-    an offer, in accord with Subsection b above.)
-
-The source code for a work means the preferred form of the work for
-making modifications to it.  For an executable work, complete source
-code means all the source code for all modules it contains, plus any
-associated interface definition files, plus the scripts used to
-control compilation and installation of the executable.  However, as a
-special exception, the source code distributed need not include
-anything that is normally distributed (in either source or binary
-form) with the major components (compiler, kernel, and so on) of the
-operating system on which the executable runs, unless that component
-itself accompanies the executable.
-
-If distribution of executable or object code is made by offering
-access to copy from a designated place, then offering equivalent
-access to copy the source code from the same place counts as
-distribution of the source code, even though third parties are not
-compelled to copy the source along with the object code.
-
-  4. You may not copy, modify, sublicense, or distribute the Program
-except as expressly provided under this License.  Any attempt
-otherwise to copy, modify, sublicense or distribute the Program is
-void, and will automatically terminate your rights under this License.
-However, parties who have received copies, or rights, from you under
-this License will not have their licenses terminated so long as such
-parties remain in full compliance.
-
-  5. You are not required to accept this License, since you have not
-signed it.  However, nothing else grants you permission to modify or
-distribute the Program or its derivative works.  These actions are
-prohibited by law if you do not accept this License.  Therefore, by
-modifying or distributing the Program (or any work based on the
-Program), you indicate your acceptance of this License to do so, and
-all its terms and conditions for copying, distributing or modifying
-the Program or works based on it.
-
-  6. Each time you redistribute the Program (or any work based on the
-Program), the recipient automatically receives a license from the
-original licensor to copy, distribute or modify the Program subject to
-these terms and conditions.  You may not impose any further
-restrictions on the recipients' exercise of the rights granted herein.
-You are not responsible for enforcing compliance by third parties to
-this License.
-
-  7. If, as a consequence of a court judgment or allegation of patent
-infringement or for any other reason (not limited to patent issues),
-conditions are imposed on you (whether by court order, agreement or
-otherwise) that contradict the conditions of this License, they do not
-excuse you from the conditions of this License.  If you cannot
-distribute so as to satisfy simultaneously your obligations under this
-License and any other pertinent obligations, then as a consequence you
-may not distribute the Program at all.  For example, if a patent
-license would not permit royalty-free redistribution of the Program by
-all those who receive copies directly or indirectly through you, then
-the only way you could satisfy both it and this License would be to
-refrain entirely from distribution of the Program.
-
-If any portion of this section is held invalid or unenforceable under
-any particular circumstance, the balance of the section is intended to
-apply and the section as a whole is intended to apply in other
-circumstances.
-
-It is not the purpose of this section to induce you to infringe any
-patents or other property right claims or to contest validity of any
-such claims; this section has the sole purpose of protecting the
-integrity of the free software distribution system, which is
-implemented by public license practices.  Many people have made
-generous contributions to the wide range of software distributed
-through that system in reliance on consistent application of that
-system; it is up to the author/donor to decide if he or she is willing
-to distribute software through any other system and a licensee cannot
-impose that choice.
-
-This section is intended to make thoroughly clear what is believed to
-be a consequence of the rest of this License.
-
-  8. If the distribution and/or use of the Program is restricted in
-certain countries either by patents or by copyrighted interfaces, the
-original copyright holder who places the Program under this License
-may add an explicit geographical distribution limitation excluding
-those countries, so that distribution is permitted only in or among
-countries not thus excluded.  In such case, this License incorporates
-the limitation as if written in the body of this License.
-
-  9. The Free Software Foundation may publish revised and/or new versions
-of the General Public License from time to time.  Such new versions will
-be similar in spirit to the present version, but may differ in detail to
-address new problems or concerns.
-
-Each version is given a distinguishing version number.  If the Program
-specifies a version number of this License which applies to it and "any
-later version", you have the option of following the terms and conditions
-either of that version or of any later version published by the Free
-Software Foundation.  If the Program does not specify a version number of
-this License, you may choose any version ever published by the Free Software
-Foundation.
-
-  10. If you wish to incorporate parts of the Program into other free
-programs whose distribution conditions are different, write to the author
-to ask for permission.  For software which is copyrighted by the Free
-Software Foundation, write to the Free Software Foundation; we sometimes
-make exceptions for this.  Our decision will be guided by the two goals
-of preserving the free status of all derivatives of our free software and
-of promoting the sharing and reuse of software generally.
-
-			    NO WARRANTY
-
-  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
-FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN
-OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES
-PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED
-OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS
-TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE
-PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,
-REPAIR OR CORRECTION.
-
-  12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
-WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR
-REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,
-INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING
-OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED
-TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY
-YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
-PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGES.
-
-		     END OF TERMS AND CONDITIONS
-
-	    How to Apply These Terms to Your New Programs
-
-  If you develop a new program, and you want it to be of the greatest
-possible use to the public, the best way to achieve this is to make it
-free software which everyone can redistribute and change under these terms.
-
-  To do so, attach the following notices to the program.  It is safest
-to attach them to the start of each source file to most effectively
-convey the exclusion of warranty; and each file should have at least
-the "copyright" line and a pointer to where the full notice is found.
-
-    <one line to give the program's name and a brief idea of what it does.>
-    Copyright (C) <year>  <name of author>
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
-
-Also add information on how to contact you by electronic and paper mail.
-
-If the program is interactive, make it output a short notice like this
-when it starts in an interactive mode:
-
-    Gnomovision version 69, Copyright (C) year name of author
-    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
-    This is free software, and you are welcome to redistribute it
-    under certain conditions; type `show c' for details.
-
-The hypothetical commands `show w' and `show c' should show the appropriate
-parts of the General Public License.  Of course, the commands you use may
-be called something other than `show w' and `show c'; they could even be
-mouse-clicks or menu items--whatever suits your program.
-
-You should also get your employer (if you work as a programmer) or your
-school, if any, to sign a "copyright disclaimer" for the program, if
-necessary.  Here is a sample; alter the names:
-
-  Yoyodyne, Inc., hereby disclaims all copyright interest in the program
-  `Gnomovision' (which makes passes at compilers) written by James Hacker.
-
-  <signature of Ty Coon>, 1 April 1989
-  Ty Coon, President of Vice
-
-This General Public License does not permit incorporating your program into
-proprietary programs.  If your program is a subroutine library, you may
-consider it more useful to permit linking proprietary applications with the
-library.  If this is what you want to do, use the GNU Library General
-Public License instead of this License.
-
-
-                                       
--------------------------------COPYRIGHT NOTICE------------------------------/
-------- Installing T-Coffee Modes
-
-------- The installer will now install the expresso components  for very accurate structure based multiple sequence alignments
---2021-04-21 20:58:57--  http://www.tcoffee.org/Packages/Binaries/plugins/macosx/TMalign
-Resolving www.tcoffee.org... 23.23.248.102
-Connecting to www.tcoffee.org|23.23.248.102|:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 365048 (356K)
-Saving to: 'x'
-
-x                            100%[=============================================>] 356.49K   707KB/s    in 0.5s    
-
-2021-04-21 20:58:57 (707 KB/s) - 'x' saved [365048/365048]
-
-
-------- Installing TMalign
---2021-04-21 20:58:57--  http://www.tcoffee.org/Packages/Binaries/plugins/macosx/strike
-Resolving www.tcoffee.org... 23.23.248.102
-Connecting to www.tcoffee.org|23.23.248.102|:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 72204 (71K)
-Saving to: 'x'
-
-x                            100%[=============================================>]  70.51K   201KB/s    in 0.4s    
-
-2021-04-21 20:58:58 (201 KB/s) - 'x' saved [72204/72204]
-
-
-------- Installing strike
-Can't locate XML/Simple.pm in @INC (you may need to install the XML::Simple module) (@INC contains: /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/darwin-thread-multi-2level /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2 /Users/soyoungjung/opt/miniconda2/lib/5.26.2/darwin-thread-multi-2level /Users/soyoungjung/opt/miniconda2/lib/5.26.2 .).
-BEGIN failed--compilation aborted.
-Can't locate XML/Simple.pm in @INC (you may need to install the XML::Simple module) (@INC contains: /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/darwin-thread-multi-2level /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2 /Users/soyoungjung/opt/miniconda2/lib/5.26.2/darwin-thread-multi-2level /Users/soyoungjung/opt/miniconda2/lib/5.26.2 .).
-BEGIN failed--compilation aborted.
-Password:
-
-CPAN.pm requires configuration, but most of it can be done automatically.
-If you answer 'no' below, you will enter an interactive dialog for each
-configuration option instead.
-
-Would you like to configure as much as possible automatically? [yes] yes
-
-
-Autoconfiguration complete.
-
-commit: wrote '/Users/soyoungjung/.cpan/CPAN/MyConfig.pm'
-
-You can re-run configuration any time with 'o conf init' in the CPAN shell
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/01mailrc.txt.gz
-Reading '/Users/soyoungjung/.cpan/sources/authors/01mailrc.txt.gz'
-............................................................................DONE
-Fetching with HTTP::Tiny:
-http://www.cpan.org/modules/02packages.details.txt.gz
-Reading '/Users/soyoungjung/.cpan/sources/modules/02packages.details.txt.gz'
-  Database was generated on Thu, 22 Apr 2021 01:41:03 GMT
-  HTTP::Date not available
-.............
-  New CPAN.pm version (v2.28) available.
-  [Currently running version is v2.18]
-  You might want to try
-    install CPAN
-    reload cpan
-  to both upgrade CPAN.pm and run the new version without leaving
-  the current session.
-
-
-...............................................................DONE
-Fetching with HTTP::Tiny:
-http://www.cpan.org/modules/03modlist.data.gz
-Reading '/Users/soyoungjung/.cpan/sources/modules/03modlist.data.gz'
-DONE
-Writing /Users/soyoungjung/.cpan/Metadata
-Running install for module 'XML::Simple'
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/id/G/GR/GRANTM/CHECKSUMS
-Checksum for /Users/soyoungjung/.cpan/sources/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz ok
-'YAML' not installed, will not store persistent state
-Configuring G/GR/GRANTM/XML-Simple-2.25.tar.gz with Makefile.PL
-Checking if your kit is complete...
-Looks good
-Warning: prerequisite XML::NamespaceSupport 1.04 not found.
-Warning: prerequisite XML::SAX 0.15 not found.
-Warning: prerequisite XML::SAX::Expat 0 not found.
-Generating a Unix-style Makefile
-Writing Makefile for XML::Simple
-Writing MYMETA.yml and MYMETA.json
-  GRANTM/XML-Simple-2.25.tar.gz
-  /Users/soyoungjung/opt/miniconda2/bin/perl Makefile.PL -- OK
-Running make for G/GR/GRANTM/XML-Simple-2.25.tar.gz
----- Unsatisfied dependencies detected during ----
-----       GRANTM/XML-Simple-2.25.tar.gz      ----
-    XML::NamespaceSupport [requires]
-    XML::SAX [requires]
-    XML::SAX::Expat [requires]
-Running install for module 'XML::NamespaceSupport'
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.12.tar.gz
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/id/P/PE/PERIGRIN/CHECKSUMS
-Checksum for /Users/soyoungjung/.cpan/sources/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.12.tar.gz ok
-Configuring P/PE/PERIGRIN/XML-NamespaceSupport-1.12.tar.gz with Makefile.PL
-Checking if your kit is complete...
-Looks good
-Generating a Unix-style Makefile
-Writing Makefile for XML::NamespaceSupport
-Writing MYMETA.yml and MYMETA.json
-  PERIGRIN/XML-NamespaceSupport-1.12.tar.gz
-  /Users/soyoungjung/opt/miniconda2/bin/perl Makefile.PL -- OK
-Running make for P/PE/PERIGRIN/XML-NamespaceSupport-1.12.tar.gz
-cp lib/XML/NamespaceSupport.pm blib/lib/XML/NamespaceSupport.pm
-Manifying 1 pod document
-  PERIGRIN/XML-NamespaceSupport-1.12.tar.gz
-  /usr/bin/make -- OK
-Running make test
-PERL_DL_NONLAZY=1 "/Users/soyoungjung/opt/miniconda2/bin/perl" "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
-t/00base.t .. ok     
-All tests successful.
-Files=1, Tests=49,  0 wallclock secs ( 0.02 usr  0.01 sys +  0.04 cusr  0.01 csys =  0.08 CPU)
-Result: PASS
-  PERIGRIN/XML-NamespaceSupport-1.12.tar.gz
-  /usr/bin/make test -- OK
-Running make install
-Manifying 1 pod document
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/NamespaceSupport.pm
-Installing /Users/soyoungjung/opt/miniconda2/man/man3/XML::NamespaceSupport.3
-Appending installation info to /Users/soyoungjung/opt/miniconda2/lib/5.26.2/darwin-thread-multi-2level/perllocal.pod
-  PERIGRIN/XML-NamespaceSupport-1.12.tar.gz
-  /usr/bin/make install  -- OK
-Running install for module 'XML::SAX'
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/id/G/GR/GRANTM/XML-SAX-1.02.tar.gz
-Checksum for /Users/soyoungjung/.cpan/sources/authors/id/G/GR/GRANTM/XML-SAX-1.02.tar.gz ok
-Configuring G/GR/GRANTM/XML-SAX-1.02.tar.gz with Makefile.PL
-Checking if your kit is complete...
-Looks good
-Warning: prerequisite XML::SAX::Base 1.05 not found.
-Generating a Unix-style Makefile
-Writing Makefile for XML::SAX
-Writing MYMETA.yml and MYMETA.json
-  GRANTM/XML-SAX-1.02.tar.gz
-  /Users/soyoungjung/opt/miniconda2/bin/perl Makefile.PL -- OK
-Running make for G/GR/GRANTM/XML-SAX-1.02.tar.gz
----- Unsatisfied dependencies detected during ----
-----        GRANTM/XML-SAX-1.02.tar.gz        ----
-    XML::SAX::Base [requires]
-Running install for module 'XML::SAX::Base'
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/id/G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz
-Checksum for /Users/soyoungjung/.cpan/sources/authors/id/G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz ok
-Configuring G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz with Makefile.PL
-Checking if your kit is complete...
-Looks good
-Generating a Unix-style Makefile
-Writing Makefile for XML::SAX::Base
-Writing MYMETA.yml and MYMETA.json
-  GRANTM/XML-SAX-Base-1.09.tar.gz
-  /Users/soyoungjung/opt/miniconda2/bin/perl Makefile.PL -- OK
-Running make for G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz
-cp BuildSAXBase.pl blib/lib/XML/SAX/BuildSAXBase.pl
-cp lib/XML/SAX/Exception.pm blib/lib/XML/SAX/Exception.pm
-cp lib/XML/SAX/Base.pm blib/lib/XML/SAX/Base.pm
-Manifying 3 pod documents
-  GRANTM/XML-SAX-Base-1.09.tar.gz
-  /usr/bin/make -- OK
-Running make test
-PERL_DL_NONLAZY=1 "/Users/soyoungjung/opt/miniconda2/bin/perl" "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
-t/00basic.t ............. ok   
-t/01exception.t ......... ok     
-t/01simpledriver.t ...... ok   
-t/02simplefilter.t ...... ok   
-t/03chdriver.t .......... ok     
-t/04chfilter.t .......... ok     
-t/05dtdhdriver.t ........ ok   
-t/06lexhdriver.t ........ ok   
-t/07declhdriver.t ....... ok   
-t/08errorhdriver.t ...... ok   
-t/09resoldriver.t ....... ok   
-t/10dochdriver.t ........ ok     
-t/11sax1multiclass.t .... ok     
-t/12sax2multiclass.t .... ok     
-t/13handlerswitch.t ..... ok   
-t/14downstreamswitch.t .. ok   
-t/15parentswitch.t ...... ok   
-t/16gethandlers.t ....... ok   
-t/release-pod-syntax.t .. skipped: these tests are for release candidate testing
-All tests successful.
-Files=19, Tests=137,  1 wallclock secs ( 0.06 usr  0.03 sys +  0.37 cusr  0.09 csys =  0.55 CPU)
-Result: PASS
-  GRANTM/XML-SAX-Base-1.09.tar.gz
-  /usr/bin/make test -- OK
-Running make install
-Manifying 3 pod documents
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/Exception.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/Base.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/BuildSAXBase.pl
-Installing /Users/soyoungjung/opt/miniconda2/man/man3/XML::SAX::Base.3
-Installing /Users/soyoungjung/opt/miniconda2/man/man3/XML::SAX::BuildSAXBase.3
-Installing /Users/soyoungjung/opt/miniconda2/man/man3/XML::SAX::Exception.3
-Appending installation info to /Users/soyoungjung/opt/miniconda2/lib/5.26.2/darwin-thread-multi-2level/perllocal.pod
-  GRANTM/XML-SAX-Base-1.09.tar.gz
-  /usr/bin/make install  -- OK
-  GRANTM/XML-SAX-1.02.tar.gz
-  Has already been unwrapped into directory /Users/soyoungjung/.cpan/build/XML-SAX-1.02-0
-  GRANTM/XML-SAX-1.02.tar.gz
-  Has already been prepared
-Running make for G/GR/GRANTM/XML-SAX-1.02.tar.gz
-cp lib/XML/SAX/DocumentLocator.pm blib/lib/XML/SAX/DocumentLocator.pm
-cp lib/XML/SAX/Intro.pod blib/lib/XML/SAX/Intro.pod
-cp lib/XML/SAX/PurePerl/DebugHandler.pm blib/lib/XML/SAX/PurePerl/DebugHandler.pm
-cp lib/XML/SAX/PurePerl/DTDDecls.pm blib/lib/XML/SAX/PurePerl/DTDDecls.pm
-cp lib/XML/SAX/PurePerl/XMLDecl.pm blib/lib/XML/SAX/PurePerl/XMLDecl.pm
-cp lib/XML/SAX/PurePerl/Reader/NoUnicodeExt.pm blib/lib/XML/SAX/PurePerl/Reader/NoUnicodeExt.pm
-cp lib/XML/SAX/PurePerl/NoUnicodeExt.pm blib/lib/XML/SAX/PurePerl/NoUnicodeExt.pm
-cp lib/XML/SAX/PurePerl/EncodingDetect.pm blib/lib/XML/SAX/PurePerl/EncodingDetect.pm
-cp lib/XML/SAX/PurePerl/Reader/String.pm blib/lib/XML/SAX/PurePerl/Reader/String.pm
-cp lib/XML/SAX/PurePerl/Productions.pm blib/lib/XML/SAX/PurePerl/Productions.pm
-cp lib/XML/SAX/PurePerl/Exception.pm blib/lib/XML/SAX/PurePerl/Exception.pm
-cp lib/XML/SAX/PurePerl/UnicodeExt.pm blib/lib/XML/SAX/PurePerl/UnicodeExt.pm
-cp lib/XML/SAX/PurePerl/Reader.pm blib/lib/XML/SAX/PurePerl/Reader.pm
-cp lib/XML/SAX/ParserFactory.pm blib/lib/XML/SAX/ParserFactory.pm
-cp lib/XML/SAX/PurePerl/Reader/Stream.pm blib/lib/XML/SAX/PurePerl/Reader/Stream.pm
-cp lib/XML/SAX/PurePerl/Reader/UnicodeExt.pm blib/lib/XML/SAX/PurePerl/Reader/UnicodeExt.pm
-cp lib/XML/SAX.pm blib/lib/XML/SAX.pm
-cp lib/XML/SAX/PurePerl.pm blib/lib/XML/SAX/PurePerl.pm
-cp lib/XML/SAX/PurePerl/Reader/URI.pm blib/lib/XML/SAX/PurePerl/Reader/URI.pm
-cp lib/XML/SAX/PurePerl/DocType.pm blib/lib/XML/SAX/PurePerl/DocType.pm
-Manifying 6 pod documents
-  GRANTM/XML-SAX-1.02.tar.gz
-  /usr/bin/make -- OK
-Running make test
-PERL_DL_NONLAZY=1 "/Users/soyoungjung/opt/miniconda2/bin/perl" "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
-t/00basic.t ....... ok   
-t/01known.t ....... ok   
-t/10xmldecl1.t .... ok   
-t/11xmldecl2.t .... ok     
-t/12miscstart.t ... ok   
-t/13int_ent.t ..... ok   
-t/14encoding.t .... ok   
-t/15element.t ..... ok     
-t/16large.t ....... 1/3 parsed 80085 bytes in 0 seconds
-t/16large.t ....... ok   
-t/19pi.t .......... ok   
-t/20factory.t ..... ok     
-t/21saxini.t ...... ok   
-t/30parse_file.t .. ok   
-t/40cdata.t ....... ok   
-t/42entities.t .... ok   
-t/99cleanup.t ..... ok   
-All tests successful.
-Files=16, Tests=113,  3 wallclock secs ( 0.06 usr  0.03 sys +  1.02 cusr  0.17 csys =  1.28 CPU)
-Result: PASS
-  GRANTM/XML-SAX-1.02.tar.gz
-  /usr/bin/make test -- OK
-Running make install
-Manifying 6 pod documents
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/Intro.pod
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/ParserFactory.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/DocumentLocator.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/Exception.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/NoUnicodeExt.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/DTDDecls.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/XMLDecl.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/EncodingDetect.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/DebugHandler.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/Reader.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/UnicodeExt.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/DocType.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/Productions.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/Reader/NoUnicodeExt.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/Reader/Stream.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/Reader/UnicodeExt.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/Reader/URI.pm
-Installing /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/XML/SAX/PurePerl/Reader/String.pm
-Installing /Users/soyoungjung/opt/miniconda2/man/man3/XML::SAX::PurePerl::Reader.3
-Installing /Users/soyoungjung/opt/miniconda2/man/man3/XML::SAX.3
-Installing /Users/soyoungjung/opt/miniconda2/man/man3/XML::SAX::Intro.3
-Installing /Users/soyoungjung/opt/miniconda2/man/man3/XML::SAX::DocumentLocator.3
-Installing /Users/soyoungjung/opt/miniconda2/man/man3/XML::SAX::ParserFactory.3
-Installing /Users/soyoungjung/opt/miniconda2/man/man3/XML::SAX::PurePerl.3
-Appending installation info to /Users/soyoungjung/opt/miniconda2/lib/5.26.2/darwin-thread-multi-2level/perllocal.pod
-could not find ParserDetails.ini in /Users/soyoungjung/.cpan/build/XML-SAX-1.02-0/blib/lib/XML/SAX
-  GRANTM/XML-SAX-1.02.tar.gz
-  /usr/bin/make install  -- OK
-Running install for module 'XML::SAX::Expat'
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/id/B/BJ/BJOERN/XML-SAX-Expat-0.51.tar.gz
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/id/B/BJ/BJOERN/CHECKSUMS
-Checksum for /Users/soyoungjung/.cpan/sources/authors/id/B/BJ/BJOERN/XML-SAX-Expat-0.51.tar.gz ok
-Configuring B/BJ/BJOERN/XML-SAX-Expat-0.51.tar.gz with Makefile.PL
-Checking if your kit is complete...
-Looks good
-Warning: prerequisite XML::Parser 2.27 not found.
-Generating a Unix-style Makefile
-Writing Makefile for XML::SAX::Expat
-Writing MYMETA.yml and MYMETA.json
-  BJOERN/XML-SAX-Expat-0.51.tar.gz
-  /Users/soyoungjung/opt/miniconda2/bin/perl Makefile.PL -- OK
-Running make for B/BJ/BJOERN/XML-SAX-Expat-0.51.tar.gz
----- Unsatisfied dependencies detected during ----
-----     BJOERN/XML-SAX-Expat-0.51.tar.gz     ----
-    XML::Parser [requires]
-Running install for module 'XML::Parser'
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/id/T/TO/TODDR/XML-Parser-2.46.tar.gz
-Fetching with HTTP::Tiny:
-http://www.cpan.org/authors/id/T/TO/TODDR/CHECKSUMS
-Checksum for /Users/soyoungjung/.cpan/sources/authors/id/T/TO/TODDR/XML-Parser-2.46.tar.gz ok
-Configuring T/TO/TODDR/XML-Parser-2.46.tar.gz with Makefile.PL
-Couldn't find your C compiler
-Compilation failed in require at Makefile.PL line 4.
-BEGIN failed--compilation aborted at Makefile.PL line 4.
-Warning: No success on command[/Users/soyoungjung/opt/miniconda2/bin/perl Makefile.PL]
-  TODDR/XML-Parser-2.46.tar.gz
-  /Users/soyoungjung/opt/miniconda2/bin/perl Makefile.PL -- NOT OK
-  BJOERN/XML-SAX-Expat-0.51.tar.gz
-  Has already been unwrapped into directory /Users/soyoungjung/.cpan/build/XML-SAX-Expat-0.51-0
-  BJOERN/XML-SAX-Expat-0.51.tar.gz
-  Has already been prepared
-Running make for B/BJ/BJOERN/XML-SAX-Expat-0.51.tar.gz
-Warning: Prerequisite 'XML::Parser => 2.27' for 'BJOERN/XML-SAX-Expat-0.51.tar.gz' failed when processing 'TODDR/XML-Parser-2.46.tar.gz' with 'writemakefile => NO '/Users/soyoungjung/opt/miniconda2/bin/perl Makefile.PL' returned status 512'. Continuing, but chances to succeed are limited.
-cp Expat.pm blib/lib/XML/SAX/Expat.pm
-Manifying 1 pod document
-  BJOERN/XML-SAX-Expat-0.51.tar.gz
-  /usr/bin/make -- OK
-Running make test
-PERL_DL_NONLAZY=1 "/Users/soyoungjung/opt/miniconda2/bin/perl" "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
-t/00basic.t ... 1/1 Can't locate XML/Parser.pm in @INC (you may need to install the XML::Parser module) (@INC contains: /Users/soyoungjung/.cpan/build/XML-SAX-Expat-0.51-0/blib/lib /Users/soyoungjung/.cpan/build/XML-SAX-Expat-0.51-0/blib/arch /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2/darwin-thread-multi-2level /Users/soyoungjung/opt/miniconda2/lib/site_perl/5.26.2 /Users/soyoungjung/opt/miniconda2/lib/5.26.2/darwin-thread-multi-2level /Users/soyoungjung/opt/miniconda2/lib/5.26.2 .) at /Users/soyoungjung/.cpan/build/XML-SAX-Expat-0.51-0/blib/lib/XML/SAX/Expat.pm line 11.
-BEGIN failed--compilation aborted at /Users/soyoungjung/.cpan/build/XML-SAX-Expat-0.51-0/blib/lib/XML/SAX/Expat.pm line 11.
-Compilation failed in require at t/00basic.t line 3.
-BEGIN failed--compilation aborted at t/00basic.t line 3.
-t/00basic.t ... Dubious, test returned 2 (wstat 512, 0x200)
-Failed 1/1 subtests 
-t/98podsyn.t .. skipped: Test::Pod 1.00 required for testing POD
-t/99podcov.t .. skipped: Test::Pod::Coverage required for testing pod coverage
-
-Test Summary Report
--------------------
-t/00basic.t (Wstat: 512 Tests: 1 Failed: 1)
-  Failed test:  1
-  Non-zero exit status: 2
-Files=3, Tests=1,  0 wallclock secs ( 0.02 usr  0.01 sys +  0.08 cusr  0.02 csys =  0.13 CPU)
-Result: FAIL
-Failed 1/3 test programs. 1/1 subtests failed.
-make: *** [test_dynamic] Error 255
-  BJOERN/XML-SAX-Expat-0.51.tar.gz
-one dependency not OK (XML::Parser); additionally test harness failed
-  /usr/bin/make test -- NOT OK
-//hint// to see the cpan-testers results for installing this module, try:
-  reports BJOERN/XML-SAX-Expat-0.51.tar.gz
-  GRANTM/XML-Simple-2.25.tar.gz
-  Has already been unwrapped into directory /Users/soyoungjung/.cpan/build/XML-Simple-2.25-0
-  GRANTM/XML-Simple-2.25.tar.gz
-  Has already been prepared
-Running make for G/GR/GRANTM/XML-Simple-2.25.tar.gz
-Warning: Prerequisite 'XML::SAX::Expat => 0' for 'GRANTM/XML-Simple-2.25.tar.gz' failed when processing 'BJOERN/XML-SAX-Expat-0.51.tar.gz' with 'make_test => NO one dependency not OK (XML::Parser); additionally test harness failed'. Continuing, but chances to succeed are limited.
-cp lib/XML/Simple/FAQ.pod blib/lib/XML/Simple/FAQ.pod
-cp lib/XML/Simple.pm blib/lib/XML/Simple.pm
-Manifying 2 pod documents
-  GRANTM/XML-Simple-2.25.tar.gz
-  /usr/bin/make -- OK
-Running make test
-PERL_DL_NONLAZY=1 "/Users/soyoungjung/opt/miniconda2/bin/perl" "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
-# Package                        Version
-#  perl                           5.26.2
-#  XML::Simple                    2.25
-#  Storable                       2.62
-#  XML::Parser                    Not Installed
-#  XML::SAX                       1.02
-#  XML::NamespaceSupport          1.12
-t/0_Config.t ............. ok   
-t/1_XMLin.t .............. ok       
-t/2_XMLout.t ............. ok       
-t/3_Storable.t ........... 9/23 
-
-
-##running clustalw
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % clustalw-2.1-macosx/clustalw2 -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP 
-
-When I put this command,
-'''zsh: bad CPU type in executable: clustalw-2.1-macosx/clustalw2'''
-this error message came out
-so I rerun the 
-'''
+```
+
+So now I activate the clustalw2 with conda with this command:
+```
+conda activate clustalw2
+```
+
+and started alignment using the command
+```
+clustalw2 -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned.fasta -OUTPUT=PHYLIP
+```
+
+Then it was running for like 1-2 mins and I got the aligned data
+```
+CLUSTAL 2.1 Multiple Sequence Alignments
+
+
+Sequence format is Pearson
+Sequence 1: Mycobacterium_tuberculosis_Type2_DHS               462 aa
+Sequence 2: Arabidopsis_thaliana_DHS1                          525 aa
+Sequence 3: Arabidopsis_thaliana_DHS2                          507 aa
+Sequence 4: Amborella_trichopoda_AmTr_v1.0_scaffold00008.219   527 aa
+Sequence 5: Amborella_trichopoda_AmTr_v1.0_scaffold00002.141   525 aa
+Sequence 6: Oryza_sativa_LOC_Os03g27230.1                      555 aa
+Sequence 7: Oryza_sativa_LOC_Os07g42960.1                      537 aa
+Sequence 8: Oryza_sativa_LOC_Os08g37790.1                      505 aa
+Sequence 9: Oryza_sativa_LOC_Os10g41480.1                      508 aa
+Sequence 10: Oryza_sativa_LOC_Os07g45430.1                      356 aa
+Sequence 11: Solanum_lycopersicum_Solyc11g009080.1.1            511 aa
+Sequence 12: Solanum_lycopersicum_Solyc04g074480.2.1            541 aa
+Sequence 13: Medicago_truncatula_Medtr5g064500.1                532 aa
+Sequence 14: Medicago_truncatula_Medtr2g009080.1                510 aa
+Sequence 15: Chlamydomonas_reinhardtii_Cre17.g726750.t1.2       502 aa
+Sequence 16: Arabidopsis_thaliana_DHS3                          527 aa
+Sequence 17: Sorghum_bicolor_Sobic.001G351000.1                 551 aa
+Sequence 18: Sorghum_bicolor_Sobic.002G379600.1                 540 aa
+Sequence 19: Sorghum_bicolor_Sobic.007G225700.1                 508 aa
+Sequence 20: Sorghum_bicolor_Sobic.001G294500.1                 499 aa
+Sequence 21: Sorghum_bicolor_Sobic.001G295300.1                 495 aa
+Sequence 22: Marchantia_polymorpha_Mapoly0008s0188.1            538 aa
+Sequence 23: Volvox_carteri_Vocar.0001s1356.1                   509 aa
+Sequence 24: Selaginella_moellendorffii_174150                  514 aa
+Sequence 25: Populus_trichocarpa_Potri.005G073300.1             531 aa
+Sequence 26: Populus_trichocarpa_Potri.002G099200.1             531 aa
+Sequence 27: Populus_trichocarpa_Potri.005G162800.1             531 aa
+Sequence 28: Populus_trichocarpa_Potri.001G150500.1             537 aa
+Sequence 29: Populus_trichocarpa_Potri.007G095700.1             432 aa
+Sequence 30: Brassica_rapa_Brara.A00086.1                       518 aa
+Sequence 31: Brassica_rapa_Brara.I03314.1                       518 aa
+Sequence 32: Brassica_rapa_Brara.G03573.1                       518 aa
+Sequence 33: Brassica_rapa_Brara.A00448.1                       508 aa
+Sequence 34: Gossypium_raimondii_Gorai.009G235000.1             539 aa
+Sequence 35: Gossypium_raimondii_Gorai.013G060200.1             516 aa
+Sequence 36: Gossypium_raimondii_Gorai.006G214500.1             517 aa
+Sequence 37: Theobroma_cacao_Thecc1EG034869t1                   539 aa
+Sequence 38: Theobroma_cacao_Thecc1EG007435t1                   515 aa
+Sequence 39: Theobroma_cacao_Thecc1EG015842t1                   519 aa
+Sequence 40: Theobroma_cacao_Thecc1EG001069t1                   525 aa
+Sequence 41: Cucumis_sativus_Cucsa.104270.1                     531 aa
+Sequence 42: Cucumis_sativus_Cucsa.160130.1                     542 aa
+Sequence 43: Cucumis_sativus_Cucsa.218120.1                     515 aa
+Sequence 44: Cucumis_sativus_Cucsa.042710.1                     521 aa
+Sequence 45: Spinacia_oleracea_Spo06646.1                       544 aa
+Sequence 46: Spinacia_oleracea_Spo23834.1                       532 aa
+Start of Pairwise alignments
+Aligning...
+
+Sequences (1:2) Aligned. Score:  45
+Sequences (1:3) Aligned. Score:  45
+Sequences (1:4) Aligned. Score:  46
+Sequences (1:5) Aligned. Score:  46
+Sequences (1:6) Aligned. Score:  45
+Sequences (1:7) Aligned. Score:  45
+Sequences (1:8) Aligned. Score:  45
+Sequences (1:9) Aligned. Score:  45
+Sequences (1:10) Aligned. Score:  45
+Sequences (1:11) Aligned. Score:  45
+Sequences (1:12) Aligned. Score:  44
+Sequences (1:13) Aligned. Score:  45
+Sequences (1:14) Aligned. Score:  44
+Sequences (1:15) Aligned. Score:  43
+Sequences (1:16) Aligned. Score:  45
+Sequences (1:17) Aligned. Score:  46
+Sequences (1:18) Aligned. Score:  44
+Sequences (1:19) Aligned. Score:  46
+Sequences (1:20) Aligned. Score:  44
+Sequences (1:21) Aligned. Score:  44
+Sequences (1:22) Aligned. Score:  46
+Sequences (1:23) Aligned. Score:  43
+Sequences (1:24) Aligned. Score:  45
+Sequences (1:25) Aligned. Score:  44
+Sequences (1:26) Aligned. Score:  44
+Sequences (1:27) Aligned. Score:  45
+Sequences (1:28) Aligned. Score:  45
+Sequences (1:29) Aligned. Score:  37
+Sequences (1:30) Aligned. Score:  45
+Sequences (1:31) Aligned. Score:  44
+Sequences (1:32) Aligned. Score:  45
+Sequences (1:33) Aligned. Score:  45
+Sequences (1:34) Aligned. Score:  43
+Sequences (1:35) Aligned. Score:  45
+Sequences (1:36) Aligned. Score:  46
+Sequences (1:37) Aligned. Score:  45
+Sequences (1:38) Aligned. Score:  45
+Sequences (1:39) Aligned. Score:  46
+Sequences (1:40) Aligned. Score:  44
+Sequences (1:41) Aligned. Score:  45
+Sequences (1:42) Aligned. Score:  44
+Sequences (1:43) Aligned. Score:  46
+Sequences (1:44) Aligned. Score:  45
+Sequences (1:45) Aligned. Score:  44
+Sequences (1:46) Aligned. Score:  43
+Sequences (2:3) Aligned. Score:  75
+Sequences (2:4) Aligned. Score:  73
+Sequences (2:5) Aligned. Score:  73
+Sequences (2:6) Aligned. Score:  75
+Sequences (2:7) Aligned. Score:  74
+Sequences (2:8) Aligned. Score:  75
+Sequences (2:9) Aligned. Score:  65
+Sequences (2:10) Aligned. Score:  83
+Sequences (2:11) Aligned. Score:  80
+Sequences (2:12) Aligned. Score:  73
+Sequences (2:13) Aligned. Score:  76
+Sequences (2:14) Aligned. Score:  71
+Sequences (2:15) Aligned. Score:  55
+Sequences (2:16) Aligned. Score:  75
+Sequences (2:17) Aligned. Score:  76
+Sequences (2:18) Aligned. Score:  73
+Sequences (2:19) Aligned. Score:  74
+Sequences (2:20) Aligned. Score:  66
+Sequences (2:21) Aligned. Score:  66
+Sequences (2:22) Aligned. Score:  67
+Sequences (2:23) Aligned. Score:  54
+Sequences (2:24) Aligned. Score:  69
+Sequences (2:25) Aligned. Score:  80
+Sequences (2:26) Aligned. Score:  76
+Sequences (2:27) Aligned. Score:  76
+Sequences (2:28) Aligned. Score:  69
+Sequences (2:29) Aligned. Score:  77
+Sequences (2:30) Aligned. Score:  92
+Sequences (2:31) Aligned. Score:  76
+Sequences (2:32) Aligned. Score:  75
+Sequences (2:33) Aligned. Score:  74
+Sequences (2:34) Aligned. Score:  77
+Sequences (2:35) Aligned. Score:  74
+Sequences (2:36) Aligned. Score:  70
+Sequences (2:37) Aligned. Score:  75
+Sequences (2:38) Aligned. Score:  74
+Sequences (2:39) Aligned. Score:  69
+Sequences (2:40) Aligned. Score:  73
+Sequences (2:41) Aligned. Score:  78
+Sequences (2:42) Aligned. Score:  76
+Sequences (2:43) Aligned. Score:  75
+Sequences (2:44) Aligned. Score:  69
+Sequences (2:45) Aligned. Score:  72
+Sequences (2:46) Aligned. Score:  73
+Sequences (3:4) Aligned. Score:  79
+Sequences (3:5) Aligned. Score:  77
+Sequences (3:6) Aligned. Score:  73
+Sequences (3:7) Aligned. Score:  77
+Sequences (3:8) Aligned. Score:  77
+Sequences (3:9) Aligned. Score:  68
+Sequences (3:10) Aligned. Score:  83
+Sequences (3:11) Aligned. Score:  76
+Sequences (3:12) Aligned. Score:  77
+Sequences (3:13) Aligned. Score:  77
+Sequences (3:14) Aligned. Score:  79
+Sequences (3:15) Aligned. Score:  53
+Sequences (3:16) Aligned. Score:  76
+Sequences (3:17) Aligned. Score:  75
+Sequences (3:18) Aligned. Score:  76
+Sequences (3:19) Aligned. Score:  74
+Sequences (3:20) Aligned. Score:  68
+Sequences (3:21) Aligned. Score:  68
+Sequences (3:22) Aligned. Score:  71
+Sequences (3:23) Aligned. Score:  54
+Sequences (3:24) Aligned. Score:  72
+Sequences (3:25) Aligned. Score:  76
+Sequences (3:26) Aligned. Score:  78
+Sequences (3:27) Aligned. Score:  80
+Sequences (3:28) Aligned. Score:  76
+Sequences (3:29) Aligned. Score:  69
+Sequences (3:30) Aligned. Score:  75
+Sequences (3:31) Aligned. Score:  75
+Sequences (3:32) Aligned. Score:  76
+Sequences (3:33) Aligned. Score:  91
+Sequences (3:34) Aligned. Score:  79
+Sequences (3:35) Aligned. Score:  81
+Sequences (3:36) Aligned. Score:  74
+Sequences (3:37) Aligned. Score:  76
+Sequences (3:38) Aligned. Score:  83
+Sequences (3:39) Aligned. Score:  74
+Sequences (3:40) Aligned. Score:  69
+Sequences (3:41) Aligned. Score:  77
+Sequences (3:42) Aligned. Score:  75
+Sequences (3:43) Aligned. Score:  80
+Sequences (3:44) Aligned. Score:  73
+Sequences (3:45) Aligned. Score:  78
+Sequences (3:46) Aligned. Score:  74
+Sequences (4:5) Aligned. Score:  77
+Sequences (4:6) Aligned. Score:  78
+Sequences (4:7) Aligned. Score:  76
+Sequences (4:8) Aligned. Score:  78
+Sequences (4:9) Aligned. Score:  68
+Sequences (4:10) Aligned. Score:  85
+Sequences (4:11) Aligned. Score:  77
+Sequences (4:12) Aligned. Score:  77
+Sequences (4:13) Aligned. Score:  79
+Sequences (4:14) Aligned. Score:  76
+Sequences (4:15) Aligned. Score:  54
+Sequences (4:16) Aligned. Score:  75
+Sequences (4:17) Aligned. Score:  77
+Sequences (4:18) Aligned. Score:  77
+Sequences (4:19) Aligned. Score:  77
+Sequences (4:20) Aligned. Score:  70
+Sequences (4:21) Aligned. Score:  70
+Sequences (4:22) Aligned. Score:  68
+Sequences (4:23) Aligned. Score:  55
+Sequences (4:24) Aligned. Score:  75
+Sequences (4:25) Aligned. Score:  78
+Sequences (4:26) Aligned. Score:  79
+Sequences (4:27) Aligned. Score:  79
+Sequences (4:28) Aligned. Score:  71
+Sequences (4:29) Aligned. Score:  71
+Sequences (4:30) Aligned. Score:  74
+Sequences (4:31) Aligned. Score:  77
+Sequences (4:32) Aligned. Score:  75
+Sequences (4:33) Aligned. Score:  77
+Sequences (4:34) Aligned. Score:  81
+Sequences (4:35) Aligned. Score:  75
+Sequences (4:36) Aligned. Score:  73
+Sequences (4:37) Aligned. Score:  78
+Sequences (4:38) Aligned. Score:  78
+Sequences (4:39) Aligned. Score:  73
+Sequences (4:40) Aligned. Score:  69
+Sequences (4:41) Aligned. Score:  76
+Sequences (4:42) Aligned. Score:  76
+Sequences (4:43) Aligned. Score:  78
+Sequences (4:44) Aligned. Score:  71
+Sequences (4:45) Aligned. Score:  73
+Sequences (4:46) Aligned. Score:  73
+Sequences (5:6) Aligned. Score:  76
+Sequences (5:7) Aligned. Score:  74
+Sequences (5:8) Aligned. Score:  77
+Sequences (5:9) Aligned. Score:  69
+Sequences (5:10) Aligned. Score:  85
+Sequences (5:11) Aligned. Score:  78
+Sequences (5:12) Aligned. Score:  73
+Sequences (5:13) Aligned. Score:  78
+Sequences (5:14) Aligned. Score:  75
+Sequences (5:15) Aligned. Score:  54
+Sequences (5:16) Aligned. Score:  73
+Sequences (5:17) Aligned. Score:  76
+Sequences (5:18) Aligned. Score:  75
+Sequences (5:19) Aligned. Score:  75
+Sequences (5:20) Aligned. Score:  71
+Sequences (5:21) Aligned. Score:  71
+Sequences (5:22) Aligned. Score:  72
+Sequences (5:23) Aligned. Score:  54
+Sequences (5:24) Aligned. Score:  71
+Sequences (5:25) Aligned. Score:  75
+Sequences (5:26) Aligned. Score:  77
+Sequences (5:27) Aligned. Score:  78
+Sequences (5:28) Aligned. Score:  73
+Sequences (5:29) Aligned. Score:  71
+Sequences (5:30) Aligned. Score:  75
+Sequences (5:31) Aligned. Score:  75
+Sequences (5:32) Aligned. Score:  73
+Sequences (5:33) Aligned. Score:  77
+Sequences (5:34) Aligned. Score:  77
+Sequences (5:35) Aligned. Score:  76
+Sequences (5:36) Aligned. Score:  74
+Sequences (5:37) Aligned. Score:  76
+Sequences (5:38) Aligned. Score:  77
+Sequences (5:39) Aligned. Score:  73
+Sequences (5:40) Aligned. Score:  68
+Sequences (5:41) Aligned. Score:  76
+Sequences (5:42) Aligned. Score:  74
+Sequences (5:43) Aligned. Score:  77
+Sequences (5:44) Aligned. Score:  72
+Sequences (5:45) Aligned. Score:  74
+Sequences (5:46) Aligned. Score:  72
+Sequences (6:7) Aligned. Score:  82
+Sequences (6:8) Aligned. Score:  78
+Sequences (6:9) Aligned. Score:  68
+Sequences (6:10) Aligned. Score:  91
+Sequences (6:11) Aligned. Score:  77
+Sequences (6:12) Aligned. Score:  75
+Sequences (6:13) Aligned. Score:  75
+Sequences (6:14) Aligned. Score:  73
+Sequences (6:15) Aligned. Score:  53
+Sequences (6:16) Aligned. Score:  77
+Sequences (6:17) Aligned. Score:  84
+Sequences (6:18) Aligned. Score:  81
+Sequences (6:19) Aligned. Score:  77
+Sequences (6:20) Aligned. Score:  69
+Sequences (6:21) Aligned. Score:  69
+Sequences (6:22) Aligned. Score:  68
+Sequences (6:23) Aligned. Score:  54
+Sequences (6:24) Aligned. Score:  71
+Sequences (6:25) Aligned. Score:  74
+Sequences (6:26) Aligned. Score:  77
+Sequences (6:27) Aligned. Score:  78
+Sequences (6:28) Aligned. Score:  69
+Sequences (6:29) Aligned. Score:  73
+Sequences (6:30) Aligned. Score:  75
+Sequences (6:31) Aligned. Score:  77
+Sequences (6:32) Aligned. Score:  77
+Sequences (6:33) Aligned. Score:  73
+Sequences (6:34) Aligned. Score:  76
+Sequences (6:35) Aligned. Score:  74
+Sequences (6:36) Aligned. Score:  70
+Sequences (6:37) Aligned. Score:  74
+Sequences (6:38) Aligned. Score:  74
+Sequences (6:39) Aligned. Score:  72
+Sequences (6:40) Aligned. Score:  66
+Sequences (6:41) Aligned. Score:  74
+Sequences (6:42) Aligned. Score:  73
+Sequences (6:43) Aligned. Score:  75
+Sequences (6:44) Aligned. Score:  71
+Sequences (6:45) Aligned. Score:  69
+Sequences (6:46) Aligned. Score:  72
+Sequences (7:8) Aligned. Score:  78
+Sequences (7:9) Aligned. Score:  67
+Sequences (7:10) Aligned. Score:  100
+Sequences (7:11) Aligned. Score:  78
+Sequences (7:12) Aligned. Score:  76
+Sequences (7:13) Aligned. Score:  75
+Sequences (7:14) Aligned. Score:  74
+Sequences (7:15) Aligned. Score:  54
+Sequences (7:16) Aligned. Score:  76
+Sequences (7:17) Aligned. Score:  82
+Sequences (7:18) Aligned. Score:  89
+Sequences (7:19) Aligned. Score:  75
+Sequences (7:20) Aligned. Score:  69
+Sequences (7:21) Aligned. Score:  69
+Sequences (7:22) Aligned. Score:  67
+Sequences (7:23) Aligned. Score:  53
+Sequences (7:24) Aligned. Score:  72
+Sequences (7:25) Aligned. Score:  75
+Sequences (7:26) Aligned. Score:  78
+Sequences (7:27) Aligned. Score:  80
+Sequences (7:28) Aligned. Score:  69
+Sequences (7:29) Aligned. Score:  74
+Sequences (7:30) Aligned. Score:  74
+Sequences (7:31) Aligned. Score:  77
+Sequences (7:32) Aligned. Score:  79
+Sequences (7:33) Aligned. Score:  76
+Sequences (7:34) Aligned. Score:  77
+Sequences (7:35) Aligned. Score:  77
+Sequences (7:36) Aligned. Score:  72
+Sequences (7:37) Aligned. Score:  75
+Sequences (7:38) Aligned. Score:  76
+Sequences (7:39) Aligned. Score:  71
+Sequences (7:40) Aligned. Score:  67
+Sequences (7:41) Aligned. Score:  75
+Sequences (7:42) Aligned. Score:  76
+Sequences (7:43) Aligned. Score:  76
+Sequences (7:44) Aligned. Score:  70
+Sequences (7:45) Aligned. Score:  73
+Sequences (7:46) Aligned. Score:  74
+Sequences (8:9) Aligned. Score:  71
+Sequences (8:10) Aligned. Score:  86
+Sequences (8:11) Aligned. Score:  77
+Sequences (8:12) Aligned. Score:  79
+Sequences (8:13) Aligned. Score:  78
+Sequences (8:14) Aligned. Score:  75
+Sequences (8:15) Aligned. Score:  55
+Sequences (8:16) Aligned. Score:  79
+Sequences (8:17) Aligned. Score:  79
+Sequences (8:18) Aligned. Score:  77
+Sequences (8:19) Aligned. Score:  89
+Sequences (8:20) Aligned. Score:  72
+Sequences (8:21) Aligned. Score:  71
+Sequences (8:22) Aligned. Score:  69
+Sequences (8:23) Aligned. Score:  57
+Sequences (8:24) Aligned. Score:  72
+Sequences (8:25) Aligned. Score:  77
+Sequences (8:26) Aligned. Score:  80
+Sequences (8:27) Aligned. Score:  80
+Sequences (8:28) Aligned. Score:  74
+Sequences (8:29) Aligned. Score:  72
+Sequences (8:30) Aligned. Score:  75
+Sequences (8:31) Aligned. Score:  80
+Sequences (8:32) Aligned. Score:  77
+Sequences (8:33) Aligned. Score:  76
+Sequences (8:34) Aligned. Score:  80
+Sequences (8:35) Aligned. Score:  77
+Sequences (8:36) Aligned. Score:  73
+Sequences (8:37) Aligned. Score:  77
+Sequences (8:38) Aligned. Score:  77
+Sequences (8:39) Aligned. Score:  75
+Sequences (8:40) Aligned. Score:  68
+Sequences (8:41) Aligned. Score:  76
+Sequences (8:42) Aligned. Score:  77
+Sequences (8:43) Aligned. Score:  78
+Sequences (8:44) Aligned. Score:  73
+Sequences (8:45) Aligned. Score:  76
+Sequences (8:46) Aligned. Score:  75
+Sequences (9:10) Aligned. Score:  75
+Sequences (9:11) Aligned. Score:  66
+Sequences (9:12) Aligned. Score:  68
+Sequences (9:13) Aligned. Score:  69
+Sequences (9:14) Aligned. Score:  66
+Sequences (9:15) Aligned. Score:  53
+Sequences (9:16) Aligned. Score:  68
+Sequences (9:17) Aligned. Score:  71
+Sequences (9:18) Aligned. Score:  67
+Sequences (9:19) Aligned. Score:  70
+Sequences (9:20) Aligned. Score:  82
+Sequences (9:21) Aligned. Score:  81
+Sequences (9:22) Aligned. Score:  65
+Sequences (9:23) Aligned. Score:  54
+Sequences (9:24) Aligned. Score:  65
+Sequences (9:25) Aligned. Score:  68
+Sequences (9:26) Aligned. Score:  68
+Sequences (9:27) Aligned. Score:  67
+Sequences (9:28) Aligned. Score:  69
+Sequences (9:29) Aligned. Score:  65
+Sequences (9:30) Aligned. Score:  66
+Sequences (9:31) Aligned. Score:  67
+Sequences (9:32) Aligned. Score:  67
+Sequences (9:33) Aligned. Score:  66
+Sequences (9:34) Aligned. Score:  68
+Sequences (9:35) Aligned. Score:  67
+Sequences (9:36) Aligned. Score:  68
+Sequences (9:37) Aligned. Score:  68
+Sequences (9:38) Aligned. Score:  67
+Sequences (9:39) Aligned. Score:  69
+Sequences (9:40) Aligned. Score:  62
+Sequences (9:41) Aligned. Score:  69
+Sequences (9:42) Aligned. Score:  67
+Sequences (9:43) Aligned. Score:  67
+Sequences (9:44) Aligned. Score:  69
+Sequences (9:45) Aligned. Score:  65
+Sequences (9:46) Aligned. Score:  66
+Sequences (10:11) Aligned. Score:  84
+Sequences (10:12) Aligned. Score:  86
+Sequences (10:13) Aligned. Score:  86
+Sequences (10:14) Aligned. Score:  84
+Sequences (10:15) Aligned. Score:  59
+Sequences (10:16) Aligned. Score:  86
+Sequences (10:17) Aligned. Score:  91
+Sequences (10:18) Aligned. Score:  96
+Sequences (10:19) Aligned. Score:  84
+Sequences (10:20) Aligned. Score:  75
+Sequences (10:21) Aligned. Score:  74
+Sequences (10:22) Aligned. Score:  77
+Sequences (10:23) Aligned. Score:  59
+Sequences (10:24) Aligned. Score:  77
+Sequences (10:25) Aligned. Score:  84
+Sequences (10:26) Aligned. Score:  86
+Sequences (10:27) Aligned. Score:  88
+Sequences (10:28) Aligned. Score:  81
+Sequences (10:29) Aligned. Score:  66
+Sequences (10:30) Aligned. Score:  83
+Sequences (10:31) Aligned. Score:  87
+Sequences (10:32) Aligned. Score:  87
+Sequences (10:33) Aligned. Score:  82
+Sequences (10:34) Aligned. Score:  86
+Sequences (10:35) Aligned. Score:  84
+Sequences (10:36) Aligned. Score:  80
+Sequences (10:37) Aligned. Score:  84
+Sequences (10:38) Aligned. Score:  84
+Sequences (10:39) Aligned. Score:  81
+Sequences (10:40) Aligned. Score:  75
+Sequences (10:41) Aligned. Score:  84
+Sequences (10:42) Aligned. Score:  86
+Sequences (10:43) Aligned. Score:  84
+Sequences (10:44) Aligned. Score:  81
+Sequences (10:45) Aligned. Score:  83
+Sequences (10:46) Aligned. Score:  82
+Sequences (11:12) Aligned. Score:  77
+Sequences (11:13) Aligned. Score:  79
+Sequences (11:14) Aligned. Score:  73
+Sequences (11:15) Aligned. Score:  53
+Sequences (11:16) Aligned. Score:  76
+Sequences (11:17) Aligned. Score:  78
+Sequences (11:18) Aligned. Score:  76
+Sequences (11:19) Aligned. Score:  75
+Sequences (11:20) Aligned. Score:  66
+Sequences (11:21) Aligned. Score:  66
+Sequences (11:22) Aligned. Score:  70
+Sequences (11:23) Aligned. Score:  54
+Sequences (11:24) Aligned. Score:  70
+Sequences (11:25) Aligned. Score:  81
+Sequences (11:26) Aligned. Score:  78
+Sequences (11:27) Aligned. Score:  79
+Sequences (11:28) Aligned. Score:  70
+Sequences (11:29) Aligned. Score:  77
+Sequences (11:30) Aligned. Score:  80
+Sequences (11:31) Aligned. Score:  76
+Sequences (11:32) Aligned. Score:  77
+Sequences (11:33) Aligned. Score:  76
+Sequences (11:34) Aligned. Score:  79
+Sequences (11:35) Aligned. Score:  78
+Sequences (11:36) Aligned. Score:  70
+Sequences (11:37) Aligned. Score:  78
+Sequences (11:38) Aligned. Score:  78
+Sequences (11:39) Aligned. Score:  73
+Sequences (11:40) Aligned. Score:  71
+Sequences (11:41) Aligned. Score:  81
+Sequences (11:42) Aligned. Score:  77
+Sequences (11:43) Aligned. Score:  78
+Sequences (11:44) Aligned. Score:  70
+Sequences (11:45) Aligned. Score:  76
+Sequences (11:46) Aligned. Score:  75
+Sequences (12:13) Aligned. Score:  80
+Sequences (12:14) Aligned. Score:  76
+Sequences (12:15) Aligned. Score:  53
+Sequences (12:16) Aligned. Score:  76
+Sequences (12:17) Aligned. Score:  75
+Sequences (12:18) Aligned. Score:  75
+Sequences (12:19) Aligned. Score:  77
+Sequences (12:20) Aligned. Score:  69
+Sequences (12:21) Aligned. Score:  69
+Sequences (12:22) Aligned. Score:  66
+Sequences (12:23) Aligned. Score:  54
+Sequences (12:24) Aligned. Score:  74
+Sequences (12:25) Aligned. Score:  77
+Sequences (12:26) Aligned. Score:  81
+Sequences (12:27) Aligned. Score:  82
+Sequences (12:28) Aligned. Score:  71
+Sequences (12:29) Aligned. Score:  72
+Sequences (12:30) Aligned. Score:  74
+Sequences (12:31) Aligned. Score:  79
+Sequences (12:32) Aligned. Score:  79
+Sequences (12:33) Aligned. Score:  77
+Sequences (12:34) Aligned. Score:  82
+Sequences (12:35) Aligned. Score:  77
+Sequences (12:36) Aligned. Score:  74
+Sequences (12:37) Aligned. Score:  80
+Sequences (12:38) Aligned. Score:  78
+Sequences (12:39) Aligned. Score:  72
+Sequences (12:40) Aligned. Score:  70
+Sequences (12:41) Aligned. Score:  77
+Sequences (12:42) Aligned. Score:  76
+Sequences (12:43) Aligned. Score:  76
+Sequences (12:44) Aligned. Score:  71
+Sequences (12:45) Aligned. Score:  72
+Sequences (12:46) Aligned. Score:  74
+Sequences (13:14) Aligned. Score:  78
+Sequences (13:15) Aligned. Score:  54
+Sequences (13:16) Aligned. Score:  78
+Sequences (13:17) Aligned. Score:  77
+Sequences (13:18) Aligned. Score:  74
+Sequences (13:19) Aligned. Score:  77
+Sequences (13:20) Aligned. Score:  70
+Sequences (13:21) Aligned. Score:  70
+Sequences (13:22) Aligned. Score:  68
+Sequences (13:23) Aligned. Score:  54
+Sequences (13:24) Aligned. Score:  74
+Sequences (13:25) Aligned. Score:  77
+Sequences (13:26) Aligned. Score:  83
+Sequences (13:27) Aligned. Score:  82
+Sequences (13:28) Aligned. Score:  71
+Sequences (13:29) Aligned. Score:  76
+Sequences (13:30) Aligned. Score:  74
+Sequences (13:31) Aligned. Score:  78
+Sequences (13:32) Aligned. Score:  77
+Sequences (13:33) Aligned. Score:  77
+Sequences (13:34) Aligned. Score:  81
+Sequences (13:35) Aligned. Score:  77
+Sequences (13:36) Aligned. Score:  72
+Sequences (13:37) Aligned. Score:  80
+Sequences (13:38) Aligned. Score:  80
+Sequences (13:39) Aligned. Score:  74
+Sequences (13:40) Aligned. Score:  70
+Sequences (13:41) Aligned. Score:  78
+Sequences (13:42) Aligned. Score:  80
+Sequences (13:43) Aligned. Score:  77
+Sequences (13:44) Aligned. Score:  71
+Sequences (13:45) Aligned. Score:  74
+Sequences (13:46) Aligned. Score:  74
+Sequences (14:15) Aligned. Score:  53
+Sequences (14:16) Aligned. Score:  75
+Sequences (14:17) Aligned. Score:  74
+Sequences (14:18) Aligned. Score:  74
+Sequences (14:19) Aligned. Score:  74
+Sequences (14:20) Aligned. Score:  68
+Sequences (14:21) Aligned. Score:  67
+Sequences (14:22) Aligned. Score:  69
+Sequences (14:23) Aligned. Score:  54
+Sequences (14:24) Aligned. Score:  70
+Sequences (14:25) Aligned. Score:  73
+Sequences (14:26) Aligned. Score:  77
+Sequences (14:27) Aligned. Score:  77
+Sequences (14:28) Aligned. Score:  73
+Sequences (14:29) Aligned. Score:  69
+Sequences (14:30) Aligned. Score:  72
+Sequences (14:31) Aligned. Score:  75
+Sequences (14:32) Aligned. Score:  76
+Sequences (14:33) Aligned. Score:  77
+Sequences (14:34) Aligned. Score:  77
+Sequences (14:35) Aligned. Score:  75
+Sequences (14:36) Aligned. Score:  73
+Sequences (14:37) Aligned. Score:  76
+Sequences (14:38) Aligned. Score:  79
+Sequences (14:39) Aligned. Score:  72
+Sequences (14:40) Aligned. Score:  66
+Sequences (14:41) Aligned. Score:  74
+Sequences (14:42) Aligned. Score:  76
+Sequences (14:43) Aligned. Score:  78
+Sequences (14:44) Aligned. Score:  72
+Sequences (14:45) Aligned. Score:  77
+Sequences (14:46) Aligned. Score:  74
+Sequences (15:16) Aligned. Score:  55
+Sequences (15:17) Aligned. Score:  53
+Sequences (15:18) Aligned. Score:  54
+Sequences (15:19) Aligned. Score:  55
+Sequences (15:20) Aligned. Score:  51
+Sequences (15:21) Aligned. Score:  51
+Sequences (15:22) Aligned. Score:  57
+Sequences (15:23) Aligned. Score:  87
+Sequences (15:24) Aligned. Score:  53
+Sequences (15:25) Aligned. Score:  54
+Sequences (15:26) Aligned. Score:  55
+Sequences (15:27) Aligned. Score:  55
+Sequences (15:28) Aligned. Score:  55
+Sequences (15:29) Aligned. Score:  52
+Sequences (15:30) Aligned. Score:  54
+Sequences (15:31) Aligned. Score:  54
+Sequences (15:32) Aligned. Score:  54
+Sequences (15:33) Aligned. Score:  51
+Sequences (15:34) Aligned. Score:  53
+Sequences (15:35) Aligned. Score:  55
+Sequences (15:36) Aligned. Score:  53
+Sequences (15:37) Aligned. Score:  54
+Sequences (15:38) Aligned. Score:  55
+Sequences (15:39) Aligned. Score:  53
+Sequences (15:40) Aligned. Score:  52
+Sequences (15:41) Aligned. Score:  53
+Sequences (15:42) Aligned. Score:  55
+Sequences (15:43) Aligned. Score:  54
+Sequences (15:44) Aligned. Score:  53
+Sequences (15:45) Aligned. Score:  53
+Sequences (15:46) Aligned. Score:  54
+Sequences (16:17) Aligned. Score:  76
+Sequences (16:18) Aligned. Score:  75
+Sequences (16:19) Aligned. Score:  77
+Sequences (16:20) Aligned. Score:  68
+Sequences (16:21) Aligned. Score:  68
+Sequences (16:22) Aligned. Score:  66
+Sequences (16:23) Aligned. Score:  55
+Sequences (16:24) Aligned. Score:  69
+Sequences (16:25) Aligned. Score:  77
+Sequences (16:26) Aligned. Score:  79
+Sequences (16:27) Aligned. Score:  80
+Sequences (16:28) Aligned. Score:  71
+Sequences (16:29) Aligned. Score:  74
+Sequences (16:30) Aligned. Score:  76
+Sequences (16:31) Aligned. Score:  93
+Sequences (16:32) Aligned. Score:  86
+Sequences (16:33) Aligned. Score:  74
+Sequences (16:34) Aligned. Score:  78
+Sequences (16:35) Aligned. Score:  75
+Sequences (16:36) Aligned. Score:  71
+Sequences (16:37) Aligned. Score:  76
+Sequences (16:38) Aligned. Score:  75
+Sequences (16:39) Aligned. Score:  70
+Sequences (16:40) Aligned. Score:  67
+Sequences (16:41) Aligned. Score:  76
+Sequences (16:42) Aligned. Score:  77
+Sequences (16:43) Aligned. Score:  75
+Sequences (16:44) Aligned. Score:  71
+Sequences (16:45) Aligned. Score:  73
+Sequences (16:46) Aligned. Score:  75
+Sequences (17:18) Aligned. Score:  84
+Sequences (17:19) Aligned. Score:  79
+Sequences (17:20) Aligned. Score:  71
+Sequences (17:21) Aligned. Score:  71
+Sequences (17:22) Aligned. Score:  68
+Sequences (17:23) Aligned. Score:  54
+Sequences (17:24) Aligned. Score:  72
+Sequences (17:25) Aligned. Score:  74
+Sequences (17:26) Aligned. Score:  77
+Sequences (17:27) Aligned. Score:  78
+Sequences (17:28) Aligned. Score:  70
+Sequences (17:29) Aligned. Score:  72
+Sequences (17:30) Aligned. Score:  75
+Sequences (17:31) Aligned. Score:  77
+Sequences (17:32) Aligned. Score:  75
+Sequences (17:33) Aligned. Score:  75
+Sequences (17:34) Aligned. Score:  75
+Sequences (17:35) Aligned. Score:  73
+Sequences (17:36) Aligned. Score:  74
+Sequences (17:37) Aligned. Score:  73
+Sequences (17:38) Aligned. Score:  75
+Sequences (17:39) Aligned. Score:  71
+Sequences (17:40) Aligned. Score:  67
+Sequences (17:41) Aligned. Score:  74
+Sequences (17:42) Aligned. Score:  74
+Sequences (17:43) Aligned. Score:  75
+Sequences (17:44) Aligned. Score:  70
+Sequences (17:45) Aligned. Score:  70
+Sequences (17:46) Aligned. Score:  75
+Sequences (18:19) Aligned. Score:  75
+Sequences (18:20) Aligned. Score:  67
+Sequences (18:21) Aligned. Score:  67
+Sequences (18:22) Aligned. Score:  68
+Sequences (18:23) Aligned. Score:  55
+Sequences (18:24) Aligned. Score:  70
+Sequences (18:25) Aligned. Score:  75
+Sequences (18:26) Aligned. Score:  76
+Sequences (18:27) Aligned. Score:  76
+Sequences (18:28) Aligned. Score:  70
+Sequences (18:29) Aligned. Score:  73
+Sequences (18:30) Aligned. Score:  74
+Sequences (18:31) Aligned. Score:  77
+Sequences (18:32) Aligned. Score:  76
+Sequences (18:33) Aligned. Score:  75
+Sequences (18:34) Aligned. Score:  76
+Sequences (18:35) Aligned. Score:  75
+Sequences (18:36) Aligned. Score:  70
+Sequences (18:37) Aligned. Score:  74
+Sequences (18:38) Aligned. Score:  76
+Sequences (18:39) Aligned. Score:  72
+Sequences (18:40) Aligned. Score:  67
+Sequences (18:41) Aligned. Score:  74
+Sequences (18:42) Aligned. Score:  74
+Sequences (18:43) Aligned. Score:  75
+Sequences (18:44) Aligned. Score:  70
+Sequences (18:45) Aligned. Score:  70
+Sequences (18:46) Aligned. Score:  73
+Sequences (19:20) Aligned. Score:  71
+Sequences (19:21) Aligned. Score:  71
+Sequences (19:22) Aligned. Score:  69
+Sequences (19:23) Aligned. Score:  55
+Sequences (19:24) Aligned. Score:  71
+Sequences (19:25) Aligned. Score:  75
+Sequences (19:26) Aligned. Score:  77
+Sequences (19:27) Aligned. Score:  78
+Sequences (19:28) Aligned. Score:  72
+Sequences (19:29) Aligned. Score:  70
+Sequences (19:30) Aligned. Score:  74
+Sequences (19:31) Aligned. Score:  78
+Sequences (19:32) Aligned. Score:  77
+Sequences (19:33) Aligned. Score:  74
+Sequences (19:34) Aligned. Score:  78
+Sequences (19:35) Aligned. Score:  76
+Sequences (19:36) Aligned. Score:  71
+Sequences (19:37) Aligned. Score:  76
+Sequences (19:38) Aligned. Score:  75
+Sequences (19:39) Aligned. Score:  73
+Sequences (19:40) Aligned. Score:  66
+Sequences (19:41) Aligned. Score:  75
+Sequences (19:42) Aligned. Score:  75
+Sequences (19:43) Aligned. Score:  76
+Sequences (19:44) Aligned. Score:  71
+Sequences (19:45) Aligned. Score:  75
+Sequences (19:46) Aligned. Score:  75
+Sequences (20:21) Aligned. Score:  96
+Sequences (20:22) Aligned. Score:  65
+Sequences (20:23) Aligned. Score:  54
+Sequences (20:24) Aligned. Score:  65
+Sequences (20:25) Aligned. Score:  69
+Sequences (20:26) Aligned. Score:  69
+Sequences (20:27) Aligned. Score:  69
+Sequences (20:28) Aligned. Score:  70
+Sequences (20:29) Aligned. Score:  64
+Sequences (20:30) Aligned. Score:  65
+Sequences (20:31) Aligned. Score:  69
+Sequences (20:32) Aligned. Score:  67
+Sequences (20:33) Aligned. Score:  68
+Sequences (20:34) Aligned. Score:  69
+Sequences (20:35) Aligned. Score:  67
+Sequences (20:36) Aligned. Score:  68
+Sequences (20:37) Aligned. Score:  69
+Sequences (20:38) Aligned. Score:  68
+Sequences (20:39) Aligned. Score:  71
+Sequences (20:40) Aligned. Score:  63
+Sequences (20:41) Aligned. Score:  68
+Sequences (20:42) Aligned. Score:  69
+Sequences (20:43) Aligned. Score:  69
+Sequences (20:44) Aligned. Score:  69
+Sequences (20:45) Aligned. Score:  67
+Sequences (20:46) Aligned. Score:  67
+Sequences (21:22) Aligned. Score:  65
+Sequences (21:23) Aligned. Score:  54
+Sequences (21:24) Aligned. Score:  65
+Sequences (21:25) Aligned. Score:  68
+Sequences (21:26) Aligned. Score:  69
+Sequences (21:27) Aligned. Score:  69
+Sequences (21:28) Aligned. Score:  70
+Sequences (21:29) Aligned. Score:  64
+Sequences (21:30) Aligned. Score:  65
+Sequences (21:31) Aligned. Score:  68
+Sequences (21:32) Aligned. Score:  67
+Sequences (21:33) Aligned. Score:  68
+Sequences (21:34) Aligned. Score:  69
+Sequences (21:35) Aligned. Score:  67
+Sequences (21:36) Aligned. Score:  68
+Sequences (21:37) Aligned. Score:  68
+Sequences (21:38) Aligned. Score:  67
+Sequences (21:39) Aligned. Score:  70
+Sequences (21:40) Aligned. Score:  63
+Sequences (21:41) Aligned. Score:  68
+Sequences (21:42) Aligned. Score:  69
+Sequences (21:43) Aligned. Score:  68
+Sequences (21:44) Aligned. Score:  69
+Sequences (21:45) Aligned. Score:  66
+Sequences (21:46) Aligned. Score:  66
+Sequences (22:23) Aligned. Score:  55
+Sequences (22:24) Aligned. Score:  73
+Sequences (22:25) Aligned. Score:  67
+Sequences (22:26) Aligned. Score:  69
+Sequences (22:27) Aligned. Score:  69
+Sequences (22:28) Aligned. Score:  64
+Sequences (22:29) Aligned. Score:  66
+Sequences (22:30) Aligned. Score:  68
+Sequences (22:31) Aligned. Score:  70
+Sequences (22:32) Aligned. Score:  67
+Sequences (22:33) Aligned. Score:  70
+Sequences (22:34) Aligned. Score:  68
+Sequences (22:35) Aligned. Score:  69
+Sequences (22:36) Aligned. Score:  67
+Sequences (22:37) Aligned. Score:  68
+Sequences (22:38) Aligned. Score:  70
+Sequences (22:39) Aligned. Score:  67
+Sequences (22:40) Aligned. Score:  61
+Sequences (22:41) Aligned. Score:  68
+Sequences (22:42) Aligned. Score:  67
+Sequences (22:43) Aligned. Score:  70
+Sequences (22:44) Aligned. Score:  66
+Sequences (22:45) Aligned. Score:  65
+Sequences (22:46) Aligned. Score:  65
+Sequences (23:24) Aligned. Score:  54
+Sequences (23:25) Aligned. Score:  54
+Sequences (23:26) Aligned. Score:  55
+Sequences (23:27) Aligned. Score:  54
+Sequences (23:28) Aligned. Score:  54
+Sequences (23:29) Aligned. Score:  53
+Sequences (23:30) Aligned. Score:  54
+Sequences (23:31) Aligned. Score:  56
+Sequences (23:32) Aligned. Score:  53
+Sequences (23:33) Aligned. Score:  53
+Sequences (23:34) Aligned. Score:  55
+Sequences (23:35) Aligned. Score:  55
+Sequences (23:36) Aligned. Score:  53
+Sequences (23:37) Aligned. Score:  54
+Sequences (23:38) Aligned. Score:  55
+Sequences (23:39) Aligned. Score:  54
+Sequences (23:40) Aligned. Score:  52
+Sequences (23:41) Aligned. Score:  55
+Sequences (23:42) Aligned. Score:  54
+Sequences (23:43) Aligned. Score:  55
+Sequences (23:44) Aligned. Score:  53
+Sequences (23:45) Aligned. Score:  54
+Sequences (23:46) Aligned. Score:  55
+Sequences (24:25) Aligned. Score:  72
+Sequences (24:26) Aligned. Score:  73
+Sequences (24:27) Aligned. Score:  74
+Sequences (24:28) Aligned. Score:  69
+Sequences (24:29) Aligned. Score:  68
+Sequences (24:30) Aligned. Score:  68
+Sequences (24:31) Aligned. Score:  70
+Sequences (24:32) Aligned. Score:  71
+Sequences (24:33) Aligned. Score:  70
+Sequences (24:34) Aligned. Score:  74
+Sequences (24:35) Aligned. Score:  71
+Sequences (24:36) Aligned. Score:  67
+Sequences (24:37) Aligned. Score:  74
+Sequences (24:38) Aligned. Score:  73
+Sequences (24:39) Aligned. Score:  67
+Sequences (24:40) Aligned. Score:  63
+Sequences (24:41) Aligned. Score:  73
+Sequences (24:42) Aligned. Score:  72
+Sequences (24:43) Aligned. Score:  72
+Sequences (24:44) Aligned. Score:  66
+Sequences (24:45) Aligned. Score:  70
+Sequences (24:46) Aligned. Score:  68
+Sequences (25:26) Aligned. Score:  80
+Sequences (25:27) Aligned. Score:  80
+Sequences (25:28) Aligned. Score:  70
+Sequences (25:29) Aligned. Score:  93
+Sequences (25:30) Aligned. Score:  80
+Sequences (25:31) Aligned. Score:  79
+Sequences (25:32) Aligned. Score:  76
+Sequences (25:33) Aligned. Score:  74
+Sequences (25:34) Aligned. Score:  78
+Sequences (25:35) Aligned. Score:  75
+Sequences (25:36) Aligned. Score:  73
+Sequences (25:37) Aligned. Score:  75
+Sequences (25:38) Aligned. Score:  76
+Sequences (25:39) Aligned. Score:  72
+Sequences (25:40) Aligned. Score:  76
+Sequences (25:41) Aligned. Score:  79
+Sequences (25:42) Aligned. Score:  76
+Sequences (25:43) Aligned. Score:  75
+Sequences (25:44) Aligned. Score:  70
+Sequences (25:45) Aligned. Score:  71
+Sequences (25:46) Aligned. Score:  74
+Sequences (26:27) Aligned. Score:  94
+Sequences (26:28) Aligned. Score:  71
+Sequences (26:29) Aligned. Score:  77
+Sequences (26:30) Aligned. Score:  76
+Sequences (26:31) Aligned. Score:  81
+Sequences (26:32) Aligned. Score:  77
+Sequences (26:33) Aligned. Score:  79
+Sequences (26:34) Aligned. Score:  85
+Sequences (26:35) Aligned. Score:  78
+Sequences (26:36) Aligned. Score:  72
+Sequences (26:37) Aligned. Score:  83
+Sequences (26:38) Aligned. Score:  81
+Sequences (26:39) Aligned. Score:  73
+Sequences (26:40) Aligned. Score:  70
+Sequences (26:41) Aligned. Score:  78
+Sequences (26:42) Aligned. Score:  80
+Sequences (26:43) Aligned. Score:  80
+Sequences (26:44) Aligned. Score:  73
+Sequences (26:45) Aligned. Score:  75
+Sequences (26:46) Aligned. Score:  76
+Sequences (27:28) Aligned. Score:  72
+Sequences (27:29) Aligned. Score:  77
+Sequences (27:30) Aligned. Score:  76
+Sequences (27:31) Aligned. Score:  80
+Sequences (27:32) Aligned. Score:  77
+Sequences (27:33) Aligned. Score:  80
+Sequences (27:34) Aligned. Score:  86
+Sequences (27:35) Aligned. Score:  78
+Sequences (27:36) Aligned. Score:  72
+Sequences (27:37) Aligned. Score:  83
+Sequences (27:38) Aligned. Score:  82
+Sequences (27:39) Aligned. Score:  73
+Sequences (27:40) Aligned. Score:  71
+Sequences (27:41) Aligned. Score:  78
+Sequences (27:42) Aligned. Score:  79
+Sequences (27:43) Aligned. Score:  80
+Sequences (27:44) Aligned. Score:  74
+Sequences (27:45) Aligned. Score:  76
+Sequences (27:46) Aligned. Score:  76
+Sequences (28:29) Aligned. Score:  69
+Sequences (28:30) Aligned. Score:  69
+Sequences (28:31) Aligned. Score:  72
+Sequences (28:32) Aligned. Score:  71
+Sequences (28:33) Aligned. Score:  74
+Sequences (28:34) Aligned. Score:  71
+Sequences (28:35) Aligned. Score:  73
+Sequences (28:36) Aligned. Score:  78
+Sequences (28:37) Aligned. Score:  70
+Sequences (28:38) Aligned. Score:  74
+Sequences (28:39) Aligned. Score:  79
+Sequences (28:40) Aligned. Score:  65
+Sequences (28:41) Aligned. Score:  69
+Sequences (28:42) Aligned. Score:  71
+Sequences (28:43) Aligned. Score:  75
+Sequences (28:44) Aligned. Score:  77
+Sequences (28:45) Aligned. Score:  70
+Sequences (28:46) Aligned. Score:  69
+Sequences (29:30) Aligned. Score:  75
+Sequences (29:31) Aligned. Score:  75
+Sequences (29:32) Aligned. Score:  73
+Sequences (29:33) Aligned. Score:  68
+Sequences (29:34) Aligned. Score:  74
+Sequences (29:35) Aligned. Score:  72
+Sequences (29:36) Aligned. Score:  68
+Sequences (29:37) Aligned. Score:  74
+Sequences (29:38) Aligned. Score:  72
+Sequences (29:39) Aligned. Score:  71
+Sequences (29:40) Aligned. Score:  75
+Sequences (29:41) Aligned. Score:  78
+Sequences (29:42) Aligned. Score:  74
+Sequences (29:43) Aligned. Score:  71
+Sequences (29:44) Aligned. Score:  68
+Sequences (29:45) Aligned. Score:  70
+Sequences (29:46) Aligned. Score:  72
+Sequences (30:31) Aligned. Score:  76
+Sequences (30:32) Aligned. Score:  77
+Sequences (30:33) Aligned. Score:  73
+Sequences (30:34) Aligned. Score:  77
+Sequences (30:35) Aligned. Score:  74
+Sequences (30:36) Aligned. Score:  71
+Sequences (30:37) Aligned. Score:  75
+Sequences (30:38) Aligned. Score:  74
+Sequences (30:39) Aligned. Score:  70
+Sequences (30:40) Aligned. Score:  69
+Sequences (30:41) Aligned. Score:  77
+Sequences (30:42) Aligned. Score:  74
+Sequences (30:43) Aligned. Score:  75
+Sequences (30:44) Aligned. Score:  70
+Sequences (30:45) Aligned. Score:  72
+Sequences (30:46) Aligned. Score:  74
+Sequences (31:32) Aligned. Score:  85
+Sequences (31:33) Aligned. Score:  75
+Sequences (31:34) Aligned. Score:  80
+Sequences (31:35) Aligned. Score:  75
+Sequences (31:36) Aligned. Score:  71
+Sequences (31:37) Aligned. Score:  80
+Sequences (31:38) Aligned. Score:  76
+Sequences (31:39) Aligned. Score:  71
+Sequences (31:40) Aligned. Score:  68
+Sequences (31:41) Aligned. Score:  77
+Sequences (31:42) Aligned. Score:  80
+Sequences (31:43) Aligned. Score:  76
+Sequences (31:44) Aligned. Score:  71
+Sequences (31:45) Aligned. Score:  76
+Sequences (31:46) Aligned. Score:  77
+Sequences (32:33) Aligned. Score:  76
+Sequences (32:34) Aligned. Score:  79
+Sequences (32:35) Aligned. Score:  74
+Sequences (32:36) Aligned. Score:  72
+Sequences (32:37) Aligned. Score:  76
+Sequences (32:38) Aligned. Score:  75
+Sequences (32:39) Aligned. Score:  70
+Sequences (32:40) Aligned. Score:  68
+Sequences (32:41) Aligned. Score:  77
+Sequences (32:42) Aligned. Score:  77
+Sequences (32:43) Aligned. Score:  75
+Sequences (32:44) Aligned. Score:  70
+Sequences (32:45) Aligned. Score:  74
+Sequences (32:46) Aligned. Score:  75
+Sequences (33:34) Aligned. Score:  79
+Sequences (33:35) Aligned. Score:  79
+Sequences (33:36) Aligned. Score:  72
+Sequences (33:37) Aligned. Score:  78
+Sequences (33:38) Aligned. Score:  82
+Sequences (33:39) Aligned. Score:  74
+Sequences (33:40) Aligned. Score:  68
+Sequences (33:41) Aligned. Score:  75
+Sequences (33:42) Aligned. Score:  76
+Sequences (33:43) Aligned. Score:  79
+Sequences (33:44) Aligned. Score:  72
+Sequences (33:45) Aligned. Score:  78
+Sequences (33:46) Aligned. Score:  74
+Sequences (34:35) Aligned. Score:  78
+Sequences (34:36) Aligned. Score:  73
+Sequences (34:37) Aligned. Score:  91
+Sequences (34:38) Aligned. Score:  82
+Sequences (34:39) Aligned. Score:  73
+Sequences (34:40) Aligned. Score:  71
+Sequences (34:41) Aligned. Score:  77
+Sequences (34:42) Aligned. Score:  79
+Sequences (34:43) Aligned. Score:  79
+Sequences (34:44) Aligned. Score:  72
+Sequences (34:45) Aligned. Score:  73
+Sequences (34:46) Aligned. Score:  76
+Sequences (35:36) Aligned. Score:  72
+Sequences (35:37) Aligned. Score:  77
+Sequences (35:38) Aligned. Score:  90
+Sequences (35:39) Aligned. Score:  74
+Sequences (35:40) Aligned. Score:  68
+Sequences (35:41) Aligned. Score:  76
+Sequences (35:42) Aligned. Score:  76
+Sequences (35:43) Aligned. Score:  80
+Sequences (35:44) Aligned. Score:  72
+Sequences (35:45) Aligned. Score:  75
+Sequences (35:46) Aligned. Score:  74
+Sequences (36:37) Aligned. Score:  71
+Sequences (36:38) Aligned. Score:  73
+Sequences (36:39) Aligned. Score:  86
+Sequences (36:40) Aligned. Score:  65
+Sequences (36:41) Aligned. Score:  71
+Sequences (36:42) Aligned. Score:  72
+Sequences (36:43) Aligned. Score:  74
+Sequences (36:44) Aligned. Score:  77
+Sequences (36:45) Aligned. Score:  69
+Sequences (36:46) Aligned. Score:  70
+Sequences (37:38) Aligned. Score:  80
+Sequences (37:39) Aligned. Score:  71
+Sequences (37:40) Aligned. Score:  70
+Sequences (37:41) Aligned. Score:  77
+Sequences (37:42) Aligned. Score:  78
+Sequences (37:43) Aligned. Score:  77
+Sequences (37:44) Aligned. Score:  71
+Sequences (37:45) Aligned. Score:  74
+Sequences (37:46) Aligned. Score:  75
+Sequences (38:39) Aligned. Score:  73
+Sequences (38:40) Aligned. Score:  69
+Sequences (38:41) Aligned. Score:  77
+Sequences (38:42) Aligned. Score:  77
+Sequences (38:43) Aligned. Score:  82
+Sequences (38:44) Aligned. Score:  73
+Sequences (38:45) Aligned. Score:  79
+Sequences (38:46) Aligned. Score:  76
+Sequences (39:40) Aligned. Score:  66
+Sequences (39:41) Aligned. Score:  71
+Sequences (39:42) Aligned. Score:  73
+Sequences (39:43) Aligned. Score:  74
+Sequences (39:44) Aligned. Score:  77
+Sequences (39:45) Aligned. Score:  70
+Sequences (39:46) Aligned. Score:  70
+Sequences (40:41) Aligned. Score:  71
+Sequences (40:42) Aligned. Score:  69
+Sequences (40:43) Aligned. Score:  69
+Sequences (40:44) Aligned. Score:  66
+Sequences (40:45) Aligned. Score:  69
+Sequences (40:46) Aligned. Score:  68
+Sequences (41:42) Aligned. Score:  75
+Sequences (41:43) Aligned. Score:  75
+Sequences (41:44) Aligned. Score:  69
+Sequences (41:45) Aligned. Score:  73
+Sequences (41:46) Aligned. Score:  74
+Sequences (42:43) Aligned. Score:  76
+Sequences (42:44) Aligned. Score:  73
+Sequences (42:45) Aligned. Score:  72
+Sequences (42:46) Aligned. Score:  76
+Sequences (43:44) Aligned. Score:  72
+Sequences (43:45) Aligned. Score:  77
+Sequences (43:46) Aligned. Score:  74
+Sequences (44:45) Aligned. Score:  70
+Sequences (44:46) Aligned. Score:  71
+Sequences (45:46) Aligned. Score:  71
+Guide tree file created:   [SupplementalDataSet3.dnd]
+
+There are 45 groups
+Start of Multiple Alignment
+
+Aligning...
+Group 1: Sequences:   2      Score:10946
+Group 2: Sequences:   3      Score:10601
+Group 3: Sequences:   2      Score:10356
+Group 4: Sequences:   5      Score:10070
+Group 5: Sequences:   2      Score:10770
+Group 6: Sequences:   2      Score:9019
+Group 7: Sequences:   3      Score:8748
+Group 8: Sequences:   5      Score:9141
+Group 9: Sequences:   2      Score:10113
+Group 10: Sequences:   7      Score:9318
+Group 11: Sequences:  12      Score:9191
+Group 12: Sequences:   2      Score:11318
+Group 13: Sequences:   2      Score:11246
+Group 14: Sequences:   4      Score:10665
+Group 15: Sequences:   5      Score:10499
+Group 16: Sequences:   6      Score:10431
+Group 17: Sequences:  18      Score:9453
+Group 18: Sequences:   2      Score:11085
+Group 19: Sequences:   2      Score:7780
+Group 20: Sequences:   3      Score:9426
+Group 21: Sequences:   5      Score:9533
+Group 22: Sequences:   2      Score:10454
+Group 23: Sequences:   7      Score:9354
+Group 24: Sequences:   8      Score:9656
+Group 25: Sequences:  26      Score:8985
+Group 26: Sequences:   2      Score:10647
+Group 27: Sequences:   2      Score:10698
+Group 28: Sequences:   4      Score:10129
+Group 29: Sequences:   5      Score:10083
+Group 30: Sequences:   2      Score:9961
+Group 31: Sequences:   7      Score:9873
+Group 32: Sequences:  33      Score:9474
+Group 33: Sequences:  34      Score:9591
+Group 34: Sequences:   2      Score:10527
+Group 35: Sequences:   3      Score:10069
+Group 36: Sequences:   4      Score:10036
+Group 37: Sequences:  38      Score:9217
+Group 38: Sequences:   2      Score:9762
+Group 39: Sequences:  40      Score:9264
+Group 40: Sequences:   2      Score:10603
+Group 41: Sequences:   3      Score:9901
+Group 42: Sequences:  43      Score:8959
+Group 43: Sequences:   2      Score:10365
+Group 44: Sequences:  45      Score:8312
+Group 45: Sequences:  46      Score:7078
+Alignment Score 2311246
+
+
+WARNING: Truncating sequence names to 10 characters for PHYLIP output.
+
+
+PHYLIP-Alignment file created   [SupplementalDataSet3-aligned.fasta]
+```
+Now I can get the new file named "SupplementalDataSet3_aligned.fasta"
+
+To get the output file in the fasta format, you can just edit the -OUTPUT=FASTA instead of -OUTPUT=PHYLIP, and I saved as "SupplementalDataSet3-aligned2.fasta"
+```
 (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda activate
-(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda create -n clustalw2 -c biobuilds -y clustalw
-'''
-based on the Beth's comment
-
-'''
-Collecting package metadata (current_repodata.json): done
-Solving environment: done
-
-
-==> WARNING: A newer version of conda exists. <==
-  current version: 4.8.3
-  latest version: 4.10.1
-
-Please update conda by running
-
-    $ conda update -n base -c defaults conda
-
-
-
-## Package Plan ##
-
-  environment location: /Users/soyoungjung/opt/miniconda2/envs/clustalw2
-
-  added / updated specs:
-    - clustalw
-
-
-The following NEW packages will be INSTALLED:
-
-  clustalw           biobuilds/osx-64::clustalw-2.1-1
-
-
-Preparing transaction: done
-Verifying transaction: done
-Executing transaction: done
-#
-# To activate this environment, use
-#
-#     $ conda activate clustalw2
-#
-# To deactivate an active environment, use
-#
-#     $ conda deactivate
-'''
-
-and then I updated conda as they described
-'''(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda update -n base -c defaults conda'''
-it took me 30 secs
-
-# To activate this environment, use
-#
-#     $ conda activate clustalw2
-
 (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda activate clustalw2
+
+(clustalw2) soyoungjung@Soyoungs-MacBook-Pro Bot563 % clustalw2 -ALIGN -INFILE=SupplementalDataSet3.fasta -OUTFILE=SupplementalDataSet3-aligned2.fasta -OUTPUT=FASTA
+```
+
+#Orthofinder
+##Install the orthofinder
+```
+conda install -c bioconda orthofinder
+```
+
+And I have the orthofinder installed:
+```
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.8.3
+  latest version: 4.10.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+# All requested packages already installed.
+```
+
+To check it was installed correctly:
+```
+orthofinder -h
+```
+
+And I was able to get:
+```
+OrthoFinder version 2.2.7 Copyright (C) 2014 David Emms
+
+SIMPLE USAGE:
+Run full OrthoFinder analysis on FASTA format proteomes in <dir>
+  orthofinder [options] -f <dir>
+
+Add new species in <dir1> to previous run in <dir2> and run new analysis
+  orthofinder [options] -f <dir1> -b <dir2>
+
+OPTIONS:
+ -t <int>          Number of parallel sequence search threads [Default = 16]
+ -a <int>          Number of parallel analysis threads [Default = 1]
+ -M <txt>          Method for gene tree inference. Options 'dendroblast' & 'msa'
+                   [Default = dendroblast]
+ -S <txt>          Sequence search program [Default = blast]
+                   Options: blast, mmseqs, blast_gz, diamond
+ -A <txt>          MSA program, requires '-M msa' [Default = mafft]
+                   Options: muscle, mafft
+ -T <txt>          Tree inference method, requires '-M msa' [Default = fasttree]
+                   Options: iqtree, raxml-ng, fasttree, raxml
+ -s <file>         User-specified rooted species tree
+ -I <int>          MCL inflation parameter [Default = 1.5]
+ -x <file>         Info for outputting results in OrthoXML format
+ -p <dir>          Write the temporary pickle files to <dir>
+ -1                Only perform one-way sequence search 
+ -n <txt>          Name to append to the results directory
+ -h                Print this help text
+
+WORKFLOW STOPPING OPTIONS:
+ -op               Stop after preparing input files for BLAST
+ -og               Stop after inferring orthogroups
+ -os               Stop after writing sequence files for orthogroups
+                   (requires '-M msa')
+ -oa               Stop after inferring alignments for orthogroups
+                   (requires '-M msa')
+ -ot               Stop after inferring gene trees for orthogroups 
+
+WORKFLOW RESTART COMMANDS:
+ -b  <dir>         Start OrthoFinder from pre-computed BLAST results in <dir>
+ -fg <dir>         Start OrthoFinder from pre-computed orthogroups in <dir>
+ -ft <dir>         Start OrthoFinder from pre-computed gene trees in <dir>
+
+LICENSE:
+ Distributed under the GNU General Public License (GPLv3). See License.md
+
+CITATION:
+ When publishing work that uses OrthoFinder please cite:
+ Emms D.M. & Kelly S. (2015), Genome Biology 16:157
+
+ If you use the species tree in your work then please also cite:
+ Emms D.M. & Kelly S. (2017), MBE 34(12): 3267-3278
+ Emms D.M. & Kelly S. (2018), bioRxiv https://doi.org/10.1101/267914
+
+```
+So it seems like orthofinder is installed well.
+
+##Run the orthofinder
+
+And then, I run the orthofinder using: 
+```
+soyoungjung@Soyoungs-MacBook-Pro Bot563 % orthofinder -f SupplementalDataSet3
+```
+
+But then, this error massage came out: 
+```
+OrthoFinder version 2.2.7 Copyright (C) 2014 David Emms
+
+2021-04-22 00:33:37 : Starting OrthoFinder
+16 thread(s) for highly parallel tasks (BLAST searches etc.)
+1 thread(s) for OrthoFinder algorithm
+
+Checking required programs are installed
+----------------------------------------
+Test can run "makeblastdb -help" - ok
+Test can run "blastp -help" - ok
+Test can run "mcl -h" - ok
+Test can run "fastme -i /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/SimpleTest.phy -o /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/SimpleTest.tre" - ok
+ERROR: At least two species are required
+ERROR: An error occurred, please review error messages for more information.
+```
+I think this is because I have all the amino acid sequences from all the different species in one fasta file.
+
+So I made different fasta files based on the plant species in the same folder 
+```
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Oriza_sativa.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Oriza_sativa.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Mycobacterium_tuberculosis.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Mycobacterium_tuberculosis.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Arabidopsis_thaliana.fasta
+```
+and then run the orthofinder again with ```orthofinder -f SupplementalDataSet3```
+
+Output was like:
+```
+OrthoFinder version 2.2.7 Copyright (C) 2014 David Emms
+
+2021-04-22 09:33:50 : Starting OrthoFinder
+16 thread(s) for highly parallel tasks (BLAST searches etc.)
+1 thread(s) for OrthoFinder algorithm
+
+Checking required programs are installed
+----------------------------------------
+Test can run "makeblastdb -help" - ok
+Test can run "blastp -help" - ok
+Test can run "mcl -h" - ok
+Test can run "fastme -i /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/SimpleTest.phy -o /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/SimpleTest.tre" - ok
+
+Dividing up work for BLAST for parallel processing
+--------------------------------------------------
+2021-04-22 09:33:51 : Creating Blast database 1 of 17
+2021-04-22 09:33:51 : Creating Blast database 2 of 17
+2021-04-22 09:33:51 : Creating Blast database 3 of 17
+2021-04-22 09:33:51 : Creating Blast database 4 of 17
+2021-04-22 09:33:51 : Creating Blast database 5 of 17
+2021-04-22 09:33:51 : Creating Blast database 6 of 17
+2021-04-22 09:33:52 : Creating Blast database 7 of 17
+2021-04-22 09:33:52 : Creating Blast database 8 of 17
+2021-04-22 09:33:52 : Creating Blast database 9 of 17
+2021-04-22 09:33:52 : Creating Blast database 10 of 17
+2021-04-22 09:33:52 : Creating Blast database 11 of 17
+2021-04-22 09:33:53 : Creating Blast database 12 of 17
+2021-04-22 09:33:53 : Creating Blast database 13 of 17
+2021-04-22 09:33:53 : Creating Blast database 14 of 17
+2021-04-22 09:33:53 : Creating Blast database 15 of 17
+2021-04-22 09:33:53 : Creating Blast database 16 of 17
+2021-04-22 09:33:54 : Creating Blast database 17 of 17
+
+Running BLAST all-versus-all
+----------------------------
+Using 16 thread(s)
+2021-04-22 09:33:54 : This may take some time....
+2021-04-22 09:33:54 : Done 0 of 289
+2021-04-22 09:33:59 : Done 100 of 289
+2021-04-22 09:34:04 : Done 200 of 289
+2021-04-22 09:34:08 : Done all-versus-all sequence search
+
+Running OrthoFinder algorithm
+-----------------------------
+2021-04-22 09:34:08 : Initial processing of each species
+2021-04-22 09:34:08 : Initial processing of species 0 complete
+2021-04-22 09:34:09 : Initial processing of species 1 complete
+2021-04-22 09:34:09 : Initial processing of species 2 complete
+WARNING: Too few hits between species 3 and species 3 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 3 and species 6 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 3 and species 8 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 3 and species 11 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 3 and species 16 to normalise the scores, these hits will be ignored
+2021-04-22 09:34:09 : Initial processing of species 3 complete
+2021-04-22 09:34:09 : Initial processing of species 4 complete
+2021-04-22 09:34:09 : Initial processing of species 5 complete
+WARNING: Too few hits between species 6 and species 3 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 6 and species 6 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 6 and species 8 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 6 and species 11 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 6 and species 16 to normalise the scores, these hits will be ignored
+2021-04-22 09:34:09 : Initial processing of species 6 complete
+2021-04-22 09:34:09 : Initial processing of species 7 complete
+WARNING: Too few hits between species 8 and species 3 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 8 and species 6 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 8 and species 8 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 8 and species 11 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 8 and species 16 to normalise the scores, these hits will be ignored
+2021-04-22 09:34:09 : Initial processing of species 8 complete
+2021-04-22 09:34:09 : Initial processing of species 9 complete
+2021-04-22 09:34:09 : Initial processing of species 10 complete
+WARNING: Too few hits between species 11 and species 3 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 11 and species 6 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 11 and species 8 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 11 and species 11 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 11 and species 16 to normalise the scores, these hits will be ignored
+2021-04-22 09:34:09 : Initial processing of species 11 complete
+2021-04-22 09:34:09 : Initial processing of species 12 complete
+2021-04-22 09:34:09 : Initial processing of species 13 complete
+2021-04-22 09:34:09 : Initial processing of species 14 complete
+2021-04-22 09:34:09 : Initial processing of species 15 complete
+WARNING: Too few hits between species 16 and species 3 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 16 and species 6 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 16 and species 8 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 16 and species 11 to normalise the scores, these hits will be ignored
+WARNING: Too few hits between species 16 and species 16 to normalise the scores, these hits will be ignored
+2021-04-22 09:34:09 : Initial processing of species 16 complete
+2021-04-22 09:34:14 : Connected putatitive homologs
+2021-04-22 09:34:14 : Written final scores for species 0 to graph file
+2021-04-22 09:34:14 : Written final scores for species 1 to graph file
+2021-04-22 09:34:15 : Written final scores for species 2 to graph file
+2021-04-22 09:34:15 : Written final scores for species 3 to graph file
+2021-04-22 09:34:15 : Written final scores for species 4 to graph file
+2021-04-22 09:34:15 : Written final scores for species 5 to graph file
+2021-04-22 09:34:15 : Written final scores for species 6 to graph file
+2021-04-22 09:34:15 : Written final scores for species 7 to graph file
+2021-04-22 09:34:15 : Written final scores for species 8 to graph file
+2021-04-22 09:34:15 : Written final scores for species 9 to graph file
+2021-04-22 09:34:15 : Written final scores for species 10 to graph file
+2021-04-22 09:34:15 : Written final scores for species 11 to graph file
+2021-04-22 09:34:15 : Written final scores for species 12 to graph file
+2021-04-22 09:34:15 : Written final scores for species 13 to graph file
+2021-04-22 09:34:15 : Written final scores for species 14 to graph file
+2021-04-22 09:34:15 : Written final scores for species 15 to graph file
+2021-04-22 09:34:15 : Written final scores for species 16 to graph file
+2021-04-22 09:34:15 : Ran MCL
+
+Writing orthogroups to file
+---------------------------
+Orthogroups have been written to tab-delimited files:
+   /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthogroups.csv
+   /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthogroups.txt (OrthoMCL format)
+   /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthogroups_UnassignedGenes.csv
+2021-04-22 09:34:15 : Done orthogroups
+
+Analysing Orthogroups
+=====================
+
+Calculating gene distances
+--------------------------
+2021-04-22 09:34:18 : Done
+Using fallback species tree inference method
+
+Inferring gene and species trees
+--------------------------------
+2021-04-22 09:34:20 : Done 0 of 2
+
+Best outgroup(s) for species tree
+---------------------------------
+2021-04-22 09:34:21 : Starting STRIDE
+2021-04-22 09:34:21 : Done STRIDE
+Observed 0 well-supported, non-terminal duplications. 0 support the best roots and 0 contradict them.
+Best outgroups for species tree:
+  Chlamydomonas_reinhardtii
+  Volvox_carteri
+  Spinacia_oleracea
+  Solanum_lycopersicum
+  Selaginella_moellendorffii
+  Amborella_trichopoda
+  Selaginella_moellendorffii, Volvox_carteri, Amborella_trichopoda, Chlamydomonas_reinhardtii, Marchantia_polymorpha, Mycobacterium_tuberculosis
+  Selaginella_moellendorffii, Sorghum_bicolor, Volvox_carteri, Amborella_trichopoda, Chlamydomonas_reinhardtii, Marchantia_polymorpha, Oriza_sativa, Mycobacterium_tuberculosis
+  Mycobacterium_tuberculosis, Chlamydomonas_reinhardtii, Volvox_carteri
+  Sorghum_bicolor
+  Oriza_sativa
+  Arabidopsis_thaliana, Gossypium_raimondii, Brassica_rapa, Theobroma_cacao, Cucumis_sativus
+  Mycobacterium_tuberculosis
+  Theobroma_cacao
+  Cucumis_sativus
+  Brassica_rapa
+  Arabidopsis_thaliana
+  Medicago_truncatula
+  Selaginella_moellendorffii, Mycobacterium_tuberculosis, Chlamydomonas_reinhardtii, Marchantia_polymorpha, Volvox_carteri
+  Mycobacterium_tuberculosis, Chlamydomonas_reinhardtii, Marchantia_polymorpha, Volvox_carteri
+  Arabidopsis_thaliana, Gossypium_raimondii, Brassica_rapa, Theobroma_cacao
+  Populus_trichocarpa, Solanum_lycopersicum, Theobroma_cacao, Arabidopsis_thaliana, Brassica_rapa, Gossypium_raimondii, Cucumis_sativus, Medicago_truncatula
+  Gossypium_raimondii, Theobroma_cacao
+  Populus_trichocarpa
+  Oriza_sativa, Sorghum_bicolor
+  Arabidopsis_thaliana, Brassica_rapa
+  Gossypium_raimondii
+  Populus_trichocarpa, Medicago_truncatula
+  Chlamydomonas_reinhardtii, Volvox_carteri
+  Marchantia_polymorpha
+  Populus_trichocarpa, Solanum_lycopersicum, Medicago_truncatula
+
+
+Multiple potential species tree roots were identified, only one will be analyed.
+================================================================================
+
+Reconciling gene trees and species tree
+---------------------------------------
+Outgroup: Chlamydomonas_reinhardtii
+2021-04-22 09:34:21 : Starting Recon and orthologues
+2021-04-22 09:34:21 : Starting OF Orthologues
+2021-04-22 09:34:21 : Done 0 of 1
+2021-04-22 09:34:21 : Done OF Orthologues
+2021-04-22 09:34:21 : Done Recon
+
+Writing results files
+=====================
+2021-04-22 09:34:21 : Done orthologues
+Orthogroups have been written to tab-delimited files:
+   /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthogroups.csv
+   /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthogroups.txt (OrthoMCL format)
+   /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthogroups_UnassignedGenes.csv
+
+Gene trees:
+   /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthologues_Apr22/Gene_Trees/
+
+Rooted species tree:
+   /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthologues_Apr22/SpeciesTree_rooted.txt
+
+Species-by-species orthologues:
+   /Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthologues_Apr22/Orthologues/
+
+Orthogroup statistics:
+   Statistics_PerSpecies.csv   Statistics_Overall.csv   Orthogroups_SpeciesOverlaps.csv
+
+OrthoFinder assigned 45 genes (97.8% of total) to 1 orthogroups. Fifty percent of all genes were in orthogroups with 45 or more genes (G50 was 45) and were contained in the largest 1 orthogroups (O50 was 1). There were 1 orthogroups with all species present and 0 of these consisted entirely of single-copy genes.
+
+CITATION:
+ When publishing work that uses OrthoFinder please cite:
+ Emms D.M. & Kelly S. (2015), Genome Biology 16:157
+
+ If you use the species tree in your work then please also cite:
+ Emms D.M. & Kelly S. (2017), MBE 34(12): 3267-3278
+ Emms D.M. & Kelly S. (2018), bioRxiv https://doi.org/10.1101/267914
+```
+
+To see the result, I run the R command:
+```
+library(ape)
+tree = read.tree(file="/Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthologues_Apr22/Gene_Trees/OG0000000_tree.txt")
+plot(tree)
+```
+
+Within the 46 genes that I run the orthofinder, 45 genes were grouped but 1 gene "Theobroma_cacao_Thecc1EG001069t1".
 
 
 

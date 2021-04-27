@@ -117,6 +117,41 @@ ERROR: An error occurred, please review error messages for more information.
 ```
 
 I think this is because I have all the amino acid sequences from all the different species in one fasta file.
+```{bash}
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Oriza_sativa.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Oriza_sativa.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Mycobacterium_tuberculosis.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Mycobacterium_tuberculosis.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Arabidopsis_thaliana.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Arabidopsis_thaliana.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Solanum_lycopersicum.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Solanum_lycopersicum.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Medicago_truncatula.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Medicago_truncatula.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Chlamydomonas_reinhardtii.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Chlamydomonas_reinhardtii.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Sorghum_bicolor.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Sorghum_bicolor.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Marchantia_polymorpha.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Marchantia_polymorpha.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Volvox_carteri.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Volvox_carteri.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Selaginella_moellendorffii.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Selaginella_moellendorffii.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Populus_trichocarpa.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Populus_trichocarpa.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Brassica_rapa.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Brassica_rapa.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Gossypium_raimondii.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Gossypium_raimondii.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Theobroma_cacao.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Theobroma_cacao.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Cucumis_sativus.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Cucumis_sativus.fasta 
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Spinacia_oleracea.fasta
+(base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Spinacia_oleracea.fasta 
+```
+
 So I made different fasta files based on the plant species in the same folder and then run the orthofinder again with 
 ```{bash}
 orthofinder -f SupplementalDataSet3
@@ -333,3 +368,9 @@ CITATION:
  Emms D.M. & Kelly S. (2018), bioRxiv https://doi.org/10.1101/267914
 ```
 
+to see the result, I run the R command:
+```{r}
+library(ape)
+tree = read.tree(file="/Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3/Results_Apr22_3/Orthologues_Apr22/Gene_Trees/OG0000000_tree.txt")
+plot(tree)
+```
