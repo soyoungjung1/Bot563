@@ -1620,6 +1620,309 @@ I copied my alligned data set into the same folder (software/raxml-ng_v1 folder)
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % cp ~/Documents/Bot563/Bot563/grouped_genes_aligned.fasta .
 ```
+## Model Test using ModelTest-NG
+The evolutionary model affects how your tree is built because it determines the rate in which nucleotides or amino acids are substituted, and the frequency in which they occur- thus affecting branch length, distances, and likelihood of a tree. The best evolutionary model can vary across enzyme families and is dependent on what taxa are included.
+
+### Download
+If there is no binary for your system or it is not working, you can either download the sources distribution or clone this repository ``` git clone https://github.com/ddarriba/modeltest ``` to my Bot563 folder.
+
+### Install ModelTest using git
+1. If there is no binary for your system or it is not working, you can either download the sources distribution or clone this repository ``` git clone https://github.com/ddarriba/modeltest ``` to my Bot563 folder.
+
+2. Install the dependencies. You can simply run (for mac):
+First make sure homebrew (https://brew.sh/) is installed. Try ```brew```.
+I had homebrew installed so I got this output:
+```
+Example usage:
+  brew search [TEXT|/REGEX/]
+  brew info [FORMULA...]
+  brew install FORMULA...
+  brew update
+  brew upgrade [FORMULA...]
+  brew uninstall FORMULA...
+  brew list [FORMULA...]
+
+Troubleshooting:
+  brew config
+  brew doctor
+  brew install --verbose --debug FORMULA
+
+Contributing:
+  brew create [URL [--no-fetch]]
+  brew edit [FORMULA...]
+
+Further help:
+  brew commands
+  brew help [COMMAND]
+  man brew
+  https://docs.brew.sh
+```
+
+3. Get dependencies using brew:
+```brew install flex bison```
+It took a little like 3-4ish mins and the output was:
+```
+Updating Homebrew...
+==> Homebrew is run entirely by unpaid volunteers. Please consider donating:
+  https://github.com/Homebrew/brew#donations
+==> Auto-updated Homebrew!
+Updated 1 tap (homebrew/core).
+==> New Formulae
+archey4                    leaf-proxy                 python-tabulate
+as-tree                    lefthook                   python-tk@3.9
+bas55                      libpipeline                qt-libiodbc
+brook                      libunwind                  qt-mariadb
+cadence-workflow           linux-pam                  qt-mysql
+clusterctl                 llvm@11                    qt-percona-server
+conftest                   lttng-ust                  qt-postgresql
+crackpkcs                  lychee                     qt-unixodbc
+crispy-doom                macchina                   rdkit
+csvtk                      mapcidr                    revive
+datalad                    marcli                     rosa-cli
+delve                      minisat                    rtl_433
+djl-serving                moto                       saml2aws
+dory                       mr2                        seqkit
+dua-cli                    multitime                  six
+enkits                     mx                         smu
+enzyme                     name-that-hash             snowpack
+epr                        net-tools                  spaceship
+fabric-installer           numactl                    sqlancer
+geph4                      obfs4proxy                 stp
+ghc@9                      open-adventure             systemd
+glibc                      openmama                   threemux
+gnupg@2.2                  openmodelica               timg
+go-boring                  oras                       tomcat@9
+go@1.15                    orgalorg                   tz
+gopass-jsonapi             organize-tool              virtualenv
+haruhi-dl                  pandoc-plot                waffle
+haskell-language-server    pcalc                      webhook
+iconsur                    pcp                        wllvm
+influxdb@1                 phpbrew                    xplr
+kertish-dfs                projectm                   xray
+kickstart                  pure                       yubikey-agent
+klee                       pyqt-3d                    zinit
+kotlin-language-server     pyqt-builder               zlib-ng
+kubergrunt                 pyqt-networkauth           zsh-vi-mode
+latino                     pyside@2
+==> Updated Formulae
+Updated 2885 formulae.
+==> Renamed Formulae
+fcct -> butane
+ht-rust -> xh
+kde-extra-cmake-modules -> extra-cmake-modules
+kde-karchive -> karchive
+kde-kdoctools -> kdoctools
+kde-ki18n -> ki18n
+kde-threadweaver -> threadweaver
+libsasl2 -> cyrus-sasl
+minizip2 -> minizip-ng
+pyqt5 -> pyqt@5
+qt5 -> qt@5
+==> Deleted Formulae
+atlassian-cli              avian                      geant4
+
+==> Downloading https://ghcr.io/v2/homebrew/core/flex/manifests/2.6.4_2
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/flex/blobs/sha256:e563a7a42acef
+==> Downloading from https://pkg-containers-az.githubusercontent.com/ghcr1/blobs
+######################################################################## 100.0%
+==> Pouring flex--2.6.4_2.catalina.bottle.tar.gz
+==> Caveats
+flex is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have flex first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/flex/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find flex you may need to set:
+  export LDFLAGS="-L/usr/local/opt/flex/lib"
+  export CPPFLAGS="-I/usr/local/opt/flex/include"
+
+==> Summary
+🍺  /usr/local/Cellar/flex/2.6.4_2: 46 files, 1.5MB
+==> `brew cleanup` has not been run in 30 days, running now...
+Removing: /Users/soyoungjung/Library/Caches/Homebrew/openssl@1.1--1.1.1i.catalina.bottle.tar.gz... (5.4MB)
+Removing: /Users/soyoungjung/Library/Logs/Homebrew/wget... (64B)
+Removing: /Users/soyoungjung/Library/Logs/Homebrew/libidn2... (64B)
+Removing: /Users/soyoungjung/Library/Logs/Homebrew/libunistring... (64B)
+Removing: /Users/soyoungjung/Library/Logs/Homebrew/gettext... (64B)
+Removing: /Users/soyoungjung/Library/Logs/Homebrew/openssl@1.1... (64B)
+Pruned 0 symbolic links and 2 directories from /usr/local
+==> Downloading https://ghcr.io/v2/homebrew/core/bison/manifests/3.7.6-1
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/bison/blobs/sha256:2276ffa48c69
+==> Downloading from https://pkg-containers-az.githubusercontent.com/ghcr1/blobs
+######################################################################## 100.0%
+==> Pouring bison--3.7.6.catalina.bottle.1.tar.gz
+==> Caveats
+bison is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have bison first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/bison/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find bison you may need to set:
+  export LDFLAGS="-L/usr/local/opt/bison/lib"
+
+==> Summary
+🍺  /usr/local/Cellar/bison/3.7.6: 94 files, 3.3MB
+==> Caveats
+==> flex
+flex is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have flex first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/flex/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find flex you may need to set:
+  export LDFLAGS="-L/usr/local/opt/flex/lib"
+  export CPPFLAGS="-I/usr/local/opt/flex/include"
+
+==> bison
+bison is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have bison first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/bison/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find bison you may need to set:
+  export LDFLAGS="-L/usr/local/opt/bison/lib"
+  ```
+  
+4. build Need to install cmake if you don't have it: https://cmake.org/download/
+for mac download (macOS 10.13 or later): cmake-3.20.1-macos-universal.tar.gz
+
+- untar:
+```tar -xvzf cmake-3.20.1-macos-universal.tar.gz```
+
+- in modeltest folder make build folder and go to build
+```mkdir build && cd build```
+
+- call cmake from wherever it was downloaded
+```(base) soyoungjung@Soyoungs-MacBook-Pro build % /Users/soyoungjung/Documents/Bot563/cmake-3.20.1-macos-universal/CMake.app/Contents/bin/cmake .. ```
+
+- Now make
+```make```
+
+- Result: Linking CXX executable. Modeltest-ng should be in bin folder within /Users/soyoungjung/Documents/Bot563/Bot563/modeltest/bin
+ folder
+```
+[100%] Linking CXX executable ../../bin/modeltest-ng
+[100%] Built target modeltest_module
+```
+
+### Run the modeltest-ng
+Using my aligned data (/Users/soyoungjung/Documents/Bot563/Bot563/grouped_genes_aligned.fasta), which is made up of amino acid seqeunces, I run:
+```
+(base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % /Users/soyoungjung/Documents/Bot563/Bot563/modeltest/bin/modeltest-ng -i grouped_genes_aligned.fasta -t ml -d aa -p 2 
+```
+It took a while for like 1.5 hours. And the result was:
+```
+Summary:
+
+Partition 1/1:
+                         Model         Score        Weight
+----------------------------------------------------------
+       BIC              JTT+G4    33501.7172        0.8903
+       AIC              JTT+G4    33112.6144        0.8820
+      AICc              JTT+G4    33141.6144        0.8859
+
+Execution results written to grouped_genes_aligned.fasta.out
+Starting tree written to grouped_genes_aligned.fasta.tree
+```
+
+So JTT+G4 model was best fitted with my data set.
+
+## RAxML using JTT+G4 model
+
+### Run the RAxML-ng
+I copied my alligned data set into the same folder (software/raxml-ng_v1 folder)
+```
+(base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % cp ~/Documents/Bot563/Bot563/grouped_genes_aligned.fasta .
+```
+### Verify the format and data consistency of the input files
+I chose the model LG+G4 as my data set was made up of amino acid sequences.
+I checked the format of input data using:
+```
+(base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % ./raxml-ng --check --msa grouped_genes_aligned.fasta --model JTT+G4
+```
+And the result was
+```
+Alignment can be successfully read by RAxML-NG.
+```
+### Inferring ML trees
+```
+(base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % ./raxml-ng --threads 2 --msa grouped_genes_aligned.fasta --model JTT+G4 --prefix JTT
+```
+It took a little while like 5-6ish mins. And the output was:
+```
+AIC score: 33111.505310 / AICc score: 33141.284778 / BIC score: 33500.608069
+Free parameters (model + branch lengths): 88
+
+Best ML tree saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/JTT.raxml.bestTree
+All ML trees saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/JTT.raxml.mlTrees
+Optimized model saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/JTT.raxml.bestModel
+
+Execution log saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/JTT.raxml.log
+
+Analysis started: 27-Apr-2021 18:53:53 / finished: 27-Apr-2021 19:00:18
+
+Elapsed time: 385.301 seconds
+```
+
+Out of the 20 trees, the best tree is saved to a file "JTT.raxml.bestTree".
+There is a log file named "JTT.raxml.log", with likelihoods of all 20 trees. Use "grep" to extract the 20 "logLikelihood" values. ```grep "logLikelihood:" JTT.raxml.log```
+
+The final LogLikelihood might be slightly different between different runs. That is because the starting tree used by "search" function is randomly selected. If you fix the random number seed in the command, e.g. "--seed 2". You would get same score between runs.
+```grep "Final" JTT.raxml.log```
+
+```
+Final LogLikelihood: -16467.752655
+```
+
+### Bootstrapping and branch support
+In the previous step you generated ML trees from 20 distinct random starting trees, and output the tree with the best likelihood. Now we will get Bootstrapping support values for the trees.
+1. Run the bootstrap on "grouped_genes_aligned.fasta" file. By default setting, RAxML-NG employs MRE-based bootstopping test to automatically determine the sufficient number of BS replicates.
+```
+./raxml-ng  --bootstrap --threads 2 --msa grouped_genes_aligned.fasta --model JTT_G4 --prefix JTT_2
+```
+This took several hours. Output:
+```
+Bootstrap trees saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/JTT_2.raxml.bootstraps
+
+Execution log saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/JTT_2.raxml.log
+
+Analysis started: 27-Apr-2021 19:03:50 / finished: 28-Apr-2021 04:26:28
+```
+
+### Map bootstrap support values to the best ML tree.
+Run the command ```./raxml-ng  --support --tree JTT.raxml.bestTree --bs-trees JTT_2.raxml.bootstraps --prefix JTT```
+
+And the output was:
+```
+Best ML tree with Felsenstein bootstrap (FBP) support values saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/JTT.raxml.support
+
+Execution log saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/JTT.raxml.log
+
+Analysis started: 28-Apr-2021 21:29:19 / finished: 28-Apr-2021 21:29:19
+
+Elapsed time: 0.056 seconds
+```
+
+# FigTree
+I used FigTree to plot my data.
+
+## Download FigTree
+I downloaded Figtree here (https://github.com/rambaut/figtree/releases)
+
+## 
+
+
+
 ### Verify the format and data consistency of the input files
 I chose the model LG+G4 as my data set was made up of amino acid sequences.
 I checked the format of input data using:
@@ -1879,33 +2182,5 @@ Elapsed time: 0.062 seconds
 ```
 
 After this step, I can get a tree file "C1.raxml.support", which is a tree file with bootstrapping support values. And check with ```less C1.raxml.support```.
-
-### Plotting the tree
-I used R for plotting the tree.
-```
-library(ape)
-raxml_tree = read.tree(file="/Users/soyoungjung/Documents/software/raxml-ng_v1/C1.raxml.support")
-plot(raxml_tree2)
-```
-
-And then, I modified a little bit by outgrouping "Mycobacterium_tuberculosis_Type2_DHS":
-```
-rooted_raxml2 = root(raxml_tree2, outgroup="Mycobacterium_tuberculosis_Type2_DHS")
-plot(rooted_raxml2)
-```
-
-?nodelabels
-
-bs <- round(runif(22, 90, 100), 0) # some imaginary bootstrap values
-bs2 <- round(runif(22, 90, 100), 0)
-bs3 <- round(runif(22, 90, 100), 0)
-plot(rooted_raxml2, use.edge.length = FALSE, font = 1)
-nodelabels(bs, adj = -0.2, frame = "n", cex = 0.8, font = 2)
-nodelabels(bs2, adj = c(1.2, 1), frame = "n", cex = 0.8, font = 3)
-nodelabels(bs3, adj = c(1.2, -0.2), frame = "n", cex = 0.8)
-
-
-
-
 
 

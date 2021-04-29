@@ -1,0 +1,177 @@
+--------------------------------------------------------------------------------
+ModelTest-NG v0.1.7
+
+Input data:
+  MSA:        grouped_genes_aligned.fasta
+  Tree:       Maximum likelihood
+    file:           -
+  #taxa:            45
+  #sites:           615
+  #patterns:        515
+  Max. thread mem:  55 MB
+
+Output:
+  Log:           grouped_genes_aligned.fasta.log
+  Starting tree: grouped_genes_aligned.fasta.tree
+  Results:       grouped_genes_aligned.fasta.out
+
+Selection options:
+  # protein matrices: 19
+  # protein models:   152
+  include model parameters:
+    Uniform:         true
+    p-inv (+I):      true
+    gamma (+G):      true
+    both (+I+G):     true
+    free rates (+R): false
+    fixed freqs:     true
+    estimated freqs: false
+    #categories:     4
+  gamma rates mode:   mean
+  asc bias:           none
+  epsilon (opt):      0.01
+  epsilon (par):      0.05
+  keep branches:      false
+
+Additional options:
+  verbosity:        very low
+  threads:          2/4
+  RNG seed:         12345
+  subtree repeats:  enabled
+--------------------------------------------------------------------------------
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  JTT+G4             1    -16468.3072     33501.7172         0.0000    0.8903
+       2  JTT-DCMUT+G4       1    -16470.4116     33505.9261         4.2089    0.1085
+       3  JTT+I+G4           2    -16471.8753     33515.2750        13.5578    0.0010
+       4  JTT-DCMUT+I+G4     2    -16474.2807     33520.0858        18.3686    0.0001
+       5  JTT-DCMUT+I+G4+F   21    -16456.0376     33605.6105       103.8933    0.0000
+       6  JTT+I+G4+F        21    -16457.5185     33608.5721       106.8549    0.0000
+       7  JTT-DCMUT+G4+F    20    -16468.5066     33624.1267       122.4095    0.0000
+       8  JTT+G4+F          20    -16470.0520     33627.2176       125.5004    0.0000
+       9  LG+I+G4+F         21    -16470.5016     33634.5385       132.8213    0.0000
+      10  LG+G4+F           20    -16482.4589     33652.0315       150.3143    0.0000
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              JTT+G4
+lnL:                -16468.3072
+Frequencies:        0.0767 0.0517 0.0426 0.0515 0.0198 0.0408 0.0618 0.0732 0.0229 0.0538 0.0919 0.0587 0.0238 0.0401 0.0509 0.0688 0.0586 0.0143 0.0321 0.0660
+Inv. sites prop:    -
+Gamma shape:        0.4294
+Score:              33501.7172
+Weight:             0.8903
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              0.9989
+Gamma-Inv:          0.0011
+Frequencies:        0.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.4294
+Alpha-P.Inv:        0.5350
+P.Inv-Alpha:        0.1351
+Frequencies:        0.0923 0.0741 0.0386 0.0513 0.0142 0.0392 0.0596 0.0722 0.0282 0.0452 0.0934 0.0426 0.0303 0.0415 0.0575 0.0710 0.0596 0.0117 0.0191 0.0581 
+
+Commands:
+  > phyml  -i grouped_genes_aligned.fasta -d aa -m JTT -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s grouped_genes_aligned.fasta -m PROTGAMMAJTT -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa grouped_genes_aligned.fasta --model JTT+G4
+  > paup -s grouped_genes_aligned.fasta
+  > iqtree -s grouped_genes_aligned.fasta -m JTT+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  JTT+G4             1    -16468.3072     33112.6144         0.0000    0.8820
+       2  JTT-DCMUT+G4       1    -16470.4116     33116.8233         4.2089    0.1075
+       3  JTT+I+G4           2    -16471.8753     33121.7506         9.1361    0.0092
+       4  JTT-DCMUT+I+G4     2    -16474.2807     33126.5614        13.9469    0.0008
+       5  JTT-DCMUT+I+G4+F   21    -16456.0376     33128.0753        15.4609    0.0004
+       6  JTT+I+G4+F        21    -16457.5185     33131.0369        18.4225    0.0001
+       7  JTT-DCMUT+G4+F    20    -16468.5066     33151.0131        38.3987    0.0000
+       8  JTT+G4+F          20    -16470.0520     33154.1040        41.4896    0.0000
+       9  LG+I+G4+F         21    -16470.5016     33157.0033        44.3888    0.0000
+      10  LG+G4+F           20    -16482.4589     33178.9179        66.3035    0.0000
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              JTT+G4
+lnL:                -16468.3072
+Frequencies:        0.0767 0.0517 0.0426 0.0515 0.0198 0.0408 0.0618 0.0732 0.0229 0.0538 0.0919 0.0587 0.0238 0.0401 0.0509 0.0688 0.0586 0.0143 0.0321 0.0660
+Inv. sites prop:    -
+Gamma shape:        0.4294
+Score:              33112.6144
+Weight:             0.8820
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              0.9895
+Gamma-Inv:          0.0105
+Frequencies:        0.0005
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.4294
+Alpha-P.Inv:        0.5362
+P.Inv-Alpha:        0.1358
+Frequencies:        0.0923 0.0741 0.0386 0.0513 0.0142 0.0392 0.0596 0.0722 0.0282 0.0452 0.0934 0.0426 0.0303 0.0415 0.0575 0.0710 0.0596 0.0117 0.0191 0.0581 
+
+Commands:
+  > phyml  -i grouped_genes_aligned.fasta -d aa -m JTT -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s grouped_genes_aligned.fasta -m PROTGAMMAJTT -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa grouped_genes_aligned.fasta --model JTT+G4
+  > paup -s grouped_genes_aligned.fasta
+  > iqtree -s grouped_genes_aligned.fasta -m JTT+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  JTT+G4             1    -16468.3072     33141.6144         0.0000    0.8859
+       2  JTT-DCMUT+G4       1    -16470.4116     33145.8233         4.2089    0.1080
+       3  JTT+I+G4           2    -16471.8753     33151.7506        10.1361    0.0056
+       4  JTT-DCMUT+I+G4     2    -16474.2807     33156.5614        14.9469    0.0005
+       5  JTT-DCMUT+I+G4+F   21    -16456.0376     33174.0753        32.4609    0.0000
+       6  JTT+I+G4+F        21    -16457.5185     33177.0369        35.4225    0.0000
+       7  JTT-DCMUT+G4+F    20    -16468.5066     33196.0131        54.3987    0.0000
+       8  JTT+G4+F          20    -16470.0520     33199.1040        57.4896    0.0000
+       9  LG+I+G4+F         21    -16470.5016     33203.0033        61.3888    0.0000
+      10  LG+G4+F           20    -16482.4589     33223.9179        82.3035    0.0000
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              JTT+G4
+lnL:                -16468.3072
+Frequencies:        0.0767 0.0517 0.0426 0.0515 0.0198 0.0408 0.0618 0.0732 0.0229 0.0538 0.0919 0.0587 0.0238 0.0401 0.0509 0.0688 0.0586 0.0143 0.0321 0.0660
+Inv. sites prop:    -
+Gamma shape:        0.4294
+Score:              33141.6144
+Weight:             0.8859
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              0.9939
+Gamma-Inv:          0.0061
+Frequencies:        0.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.4294
+Alpha-P.Inv:        0.5350
+P.Inv-Alpha:        0.1351
+Frequencies:        0.0923 0.0741 0.0386 0.0513 0.0142 0.0392 0.0596 0.0722 0.0282 0.0452 0.0934 0.0426 0.0303 0.0415 0.0575 0.0710 0.0596 0.0117 0.0191 0.0581 
+
+Commands:
+  > phyml  -i grouped_genes_aligned.fasta -d aa -m JTT -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s grouped_genes_aligned.fasta -m PROTGAMMAJTT -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa grouped_genes_aligned.fasta --model JTT+G4
+  > paup -s grouped_genes_aligned.fasta
+  > iqtree -s grouped_genes_aligned.fasta -m JTT+G4
+Done
