@@ -1,6 +1,6 @@
 # ClustalW
 ## Download the ClustalW
-Downloaded ClustalW file clustalw-2.1-macosx.dmg from here (http://www.clustal.org/clustal2/) and copied the folder into Document/Bot563
+Downloaded ClustalW file clustalw-2.1-macosx.dmg from here (http://www.clustal.org/clustal2/) and copied the folder into ```Document/Bot563```
 
 ## Running the ClustalW
 I tried to run the ClustalW:
@@ -1615,7 +1615,7 @@ System: Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz, 4 cores, 8 GB RAM
 So it seems like raxml was installed well.
 
 ## Run the RAxML-ng
-I copied my aligned data set into the same folder (software/raxml-ng_v1 folder)
+I copied my aligned data set into the same folder ```software/raxml-ng_v1 folder```
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % cp ~/Documents/Bot563/Bot563/grouped_genes_aligned.fasta .
 ```
@@ -1790,7 +1790,9 @@ For compilers to find bison you may need to set:
   ```
   
 4. build Need to install cmake if you don't have it: https://cmake.org/download/
-for mac download (macOS 10.13 or later): cmake-3.20.1-macos-universal.tar.gz
+
+
+For mac download (macOS 10.13 or later): ```cmake-3.20.1-macos-universal.tar.gz```
 
 - untar:
 ```tar -xvzf cmake-3.20.1-macos-universal.tar.gz```
@@ -1812,7 +1814,7 @@ for mac download (macOS 10.13 or later): cmake-3.20.1-macos-universal.tar.gz
 ```
 
 ### Run the modeltest-ng
-Using my aligned data (/Users/soyoungjung/Documents/Bot563/Bot563/grouped_genes_aligned.fasta), which is made up of 45 amino acid seqeunces, I run:
+Using my aligned data ```/Users/soyoungjung/Documents/Bot563/Bot563/grouped_genes_aligned.fasta```, which is made up of 45 amino acid seqeunces, I run:
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % /Users/soyoungjung/Documents/Bot563/Bot563/modeltest/bin/modeltest-ng -i grouped_genes_aligned.fasta -t ml -d aa -p 2 
 ```
@@ -1885,7 +1887,7 @@ Final LogLikelihood: -16467.752655
 In the previous step I generated ML trees from 20 distinct random starting trees, and output the tree with the best likelihood. Now I will get Bootstrapping support values for the trees.
 
 
-1. Run the bootstrap on "grouped_genes_aligned.fasta" file. By default setting, RAxML-NG employs MRE-based bootstopping test to automatically determine the sufficient number of BS replicates.
+1. Run the bootstrap on ```grouped_genes_aligned.fasta``` file. By default setting, RAxML-NG employs MRE-based bootstrapping test to automatically determine the sufficient number of BS replicates.
 ```
 ./raxml-ng  --bootstrap --threads 2 --msa grouped_genes_aligned.fasta --model JTT_G4 --prefix JTT_2
 ```
