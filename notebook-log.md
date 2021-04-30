@@ -1,9 +1,6 @@
 # ClustalW
 ## Download the ClustalW
-
-Downloaded ClustalW file clustalw-2.1-macosx.dmg and copied the folder into Document/software
-
-``` (base) soyoungjung@Soyoungs-MacBook-Pro Documents % cp Bot563/Bot563/clustalw-2.1-macosx/clustalw2 software```
+Downloaded ClustalW file clustalw-2.1-macosx.dmg from here (http://www.clustal.org/clustal2/) and copied the folder into Document/Bot563
 
 ## Running the ClustalW
 I tried to run the ClustalW:
@@ -1221,9 +1218,9 @@ WARNING: Truncating sequence names to 10 characters for PHYLIP output.
 
 PHYLIP-Alignment file created   [SupplementalDataSet3-aligned.fasta]
 ```
-Now I can get the new file named "SupplementalDataSet3_aligned.fasta"
+Now I can get the new file named "SupplementalDataSet3_aligned.fasta".
 
-To get the output file in the fasta format, you can just edit the -OUTPUT=FASTA instead of -OUTPUT=PHYLIP, and I saved as "SupplementalDataSet3-aligned2.fasta"
+To get the output file in the fasta format, you can just edit the -OUTPUT=FASTA instead of -OUTPUT=PHYLIP, and I saved as "SupplementalDataSet3-aligned2.fasta".
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda activate
 (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda activate clustalw2
@@ -1234,6 +1231,7 @@ To get the output file in the fasta format, you can just edit the -OUTPUT=FASTA 
 
 # Orthofinder
 ## Install the orthofinder
+I used conda for installing the orthofinder:
 ```
 conda install -c bioconda orthofinder
 ```
@@ -1257,12 +1255,12 @@ Please update conda by running
 # All requested packages already installed.
 ```
 
-To check it was installed correctly:
+To check if it was installed correctly:
 ```
 orthofinder -h
 ```
 
-And I was able to get:
+And the output was:
 ```
 OrthoFinder version 2.2.7 Copyright (C) 2014 David Emms
 
@@ -1321,7 +1319,6 @@ CITATION:
 So it seems like orthofinder is installed well.
 
 ## Run the orthofinder
-
 And then, I run the orthofinder using: 
 ```
 soyoungjung@Soyoungs-MacBook-Pro Bot563 % orthofinder -f SupplementalDataSet3
@@ -1346,7 +1343,7 @@ ERROR: An error occurred, please review error messages for more information.
 ```
 I think this is because I have all the amino acid sequences from all the different species in one fasta file.
 
-So I made different fasta files based on the plant species in the same folder 
+So I made different fasta files based on the plant species in the same folder (SupplementalDataSet3)
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % touch Oriza_sativa.fasta
 (base) soyoungjung@Soyoungs-MacBook-Pro SupplementalDataSet3 % open Oriza_sativa.fasta 
@@ -1578,12 +1575,13 @@ Within the 46 genes that I run the orthofinder, 45 genes were grouped but 1 gene
 
 ## Running the ClustalW with the genes assigned as a same orthogroup
 
-Made a new fasta file containing the grouped 45 genes out of 46 genes, based on the Orthofinder result
+Made a new fasta file (grouped_genes.fasta) containing the grouped 45 genes out of 46 genes, based on the Orthofinder result:
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % touch grouped_genes.fasta     
 (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % open grouped_genes.fasta
 ```
 
+And then I rerun the ClustalW to align those 45 genes:
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % conda activate clustalw2
 (clustalw2) soyoungjung@Soyoungs-MacBook-Pro Bot563 % clustalw2 -ALIGN -INFILE=grouped_genes.fasta -OUTFILE=grouped_genes_aligned.fasta -OUTPUT=FASTA
@@ -1591,6 +1589,7 @@ Made a new fasta file containing the grouped 45 genes out of 46 genes, based on 
 
 # RAxML-ng
 ## Install the raxml-ng
+I downloaded ```Download 64-bit OSX/macOS binary``` from here (https://github.com/amkozlov/raxml-ng).
 I put the raxml-ng on my 'software' folder
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro ~ % cd Documents/software 
@@ -1598,7 +1597,7 @@ I put the raxml-ng on my 'software' folder
 clustalw2	raxml-ng_v1
 ```
 
-Check if it's installed with:
+Check if it's installed with the command:
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % ./raxml-ng -v
 ```
@@ -1616,18 +1615,15 @@ System: Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz, 4 cores, 8 GB RAM
 So it seems like raxml was installed well.
 
 ## Run the RAxML-ng
-I copied my alligned data set into the same folder (software/raxml-ng_v1 folder)
+I copied my aligned data set into the same folder (software/raxml-ng_v1 folder)
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % cp ~/Documents/Bot563/Bot563/grouped_genes_aligned.fasta .
 ```
 ## Model Test using ModelTest-NG
-The evolutionary model affects how your tree is built because it determines the rate in which nucleotides or amino acids are substituted, and the frequency in which they occur- thus affecting branch length, distances, and likelihood of a tree. The best evolutionary model can vary across enzyme families and is dependent on what taxa are included.
-
-### Download
-If there is no binary for your system or it is not working, you can either download the sources distribution or clone this repository ``` git clone https://github.com/ddarriba/modeltest ``` to my Bot563 folder.
+There are different models in RAxML and it is important to use best model for my data set. So I used Modeltest-ng to figure out which model would be suitable for my data set.
 
 ### Install ModelTest using git
-1. If there is no binary for your system or it is not working, you can either download the sources distribution or clone this repository ``` git clone https://github.com/ddarriba/modeltest ``` to my Bot563 folder.
+1. I downloaded by cloning this repository ``` git clone https://github.com/ddarriba/modeltest ``` to my Bot563 folder.
 
 2. Install the dependencies. You can simply run (for mac):
 First make sure homebrew (https://brew.sh/) is installed. Try ```brew```.
@@ -1816,7 +1812,7 @@ for mac download (macOS 10.13 or later): cmake-3.20.1-macos-universal.tar.gz
 ```
 
 ### Run the modeltest-ng
-Using my aligned data (/Users/soyoungjung/Documents/Bot563/Bot563/grouped_genes_aligned.fasta), which is made up of amino acid seqeunces, I run:
+Using my aligned data (/Users/soyoungjung/Documents/Bot563/Bot563/grouped_genes_aligned.fasta), which is made up of 45 amino acid seqeunces, I run:
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro Bot563 % /Users/soyoungjung/Documents/Bot563/Bot563/modeltest/bin/modeltest-ng -i grouped_genes_aligned.fasta -t ml -d aa -p 2 
 ```
@@ -1834,31 +1830,32 @@ Partition 1/1:
 Execution results written to grouped_genes_aligned.fasta.out
 Starting tree written to grouped_genes_aligned.fasta.tree
 ```
-
 So JTT+G4 model was best fitted with my data set.
 
-## RAxML using JTT+G4 model
-
+## Run the RAxML using JTT+G4 model
 ### Run the RAxML-ng
 I copied my alligned data set into the same folder (software/raxml-ng_v1 folder)
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % cp ~/Documents/Bot563/Bot563/grouped_genes_aligned.fasta .
 ```
 ### Verify the format and data consistency of the input files
-I chose the model LG+G4 as my data set was made up of amino acid sequences.
-I checked the format of input data using:
+I chose the model JTT+G4 as my data set and I checked the format of input data using:
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % ./raxml-ng --check --msa grouped_genes_aligned.fasta --model JTT+G4
 ```
-And the result was
+And the result was:
 ```
 Alignment can be successfully read by RAxML-NG.
 ```
+So it seems like the input data can be read by RAxML-NG.
+- But when I tried to check the alignment file with output=phylip, it said that ```ERROR: Alignment check failed (see details above)!```. So make sure the input alignment file was output=fasta file.
+
 ### Inferring ML trees
+
 ```
 (base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % ./raxml-ng --threads 2 --msa grouped_genes_aligned.fasta --model JTT+G4 --prefix JTT
 ```
-It took a little while like 5-6ish mins. And the output was:
+It took like 5-6ish mins. And the output was:
 ```
 AIC score: 33111.505310 / AICc score: 33141.284778 / BIC score: 33500.608069
 Free parameters (model + branch lengths): 88
@@ -1885,7 +1882,9 @@ Final LogLikelihood: -16467.752655
 ```
 
 ### Bootstrapping and branch support
-In the previous step you generated ML trees from 20 distinct random starting trees, and output the tree with the best likelihood. Now we will get Bootstrapping support values for the trees.
+In the previous step I generated ML trees from 20 distinct random starting trees, and output the tree with the best likelihood. Now I will get Bootstrapping support values for the trees.
+
+
 1. Run the bootstrap on "grouped_genes_aligned.fasta" file. By default setting, RAxML-NG employs MRE-based bootstopping test to automatically determine the sufficient number of BS replicates.
 ```
 ./raxml-ng  --bootstrap --threads 2 --msa grouped_genes_aligned.fasta --model JTT_G4 --prefix JTT_2
@@ -1917,270 +1916,9 @@ Elapsed time: 0.056 seconds
 I used FigTree to plot my data.
 
 ## Download FigTree
-I downloaded Figtree here (https://github.com/rambaut/figtree/releases)
-
-## 
-
-
-
-### Verify the format and data consistency of the input files
-I chose the model LG+G4 as my data set was made up of amino acid sequences.
-I checked the format of input data using:
-```
-(base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % ./raxml-ng --check --msa grouped_genes_aligned.fasta --model LG+G4
-```
-
-And then the output was like:
-```
-RAxML-NG v. 1.0.2 released on 22.02.2021 by The Exelixis Lab.
-Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
-Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
-Latest version: https://github.com/amkozlov/raxml-ng
-Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
-
-System: Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz, 4 cores, 8 GB RAM
-
-RAxML-NG was called at 26-Apr-2021 23:15:28 as follows:
-
-./raxml-ng --check --msa grouped_genes_aligned.fasta --model LG+G4
-
-Analysis options:
-  run mode: Alignment validation
-  start tree(s): 
-  random seed: 1619496928
-  SIMD kernels: AVX2
-  parallelization: coarse-grained (auto), PTHREADS (auto)
-
-[00:00:00] Reading alignment from file: grouped_genes_aligned.fasta
-[00:00:00] Loaded alignment with 45 taxa and 615 sites
-
-Alignment comprises 1 partitions and 615 sites
-
-Partition 0: noname
-Model: LG+G4m
-Alignment sites: 615
-Gaps: 16.03 %
-Invariant sites: 28.62 %
-
-
-Alignment can be successfully read by RAxML-NG.
-
-
-Execution log saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/grouped_genes_aligned.fasta.raxml.log
-
-Analysis started: 26-Apr-2021 23:15:28 / finished: 26-Apr-2021 23:15:28
-
-Elapsed time: 0.011 seconds
-```
-
-It says that "Alignment can be successfully read by RAxML-NG.", so the input file seems like ok.
-
-But when I tried to check the alignment file with 'output=phylip', the error message was popped up like:
-```
-[00:00:00] Reading alignment from file: grouped_genes_aligned.fasta
-[00:00:00] Loaded alignment with 45 taxa and 615 sites
-
-ERROR: Sequences 2 and 3 have identical name: Brassica_r
-ERROR: Sequences 1 and 6 have identical name: Arabidopsi
-ERROR: Sequences 2 and 7 have identical name: Brassica_r
-ERROR: Sequences 8 and 9 have identical name: Populus_tr
-ERROR: Sequences 4 and 11 have identical name: Cucumis_sa
-ERROR: Sequences 8 and 12 have identical name: Populus_tr
-ERROR: Sequences 8 and 13 have identical name: Populus_tr
-ERROR: Sequences 10 and 16 have identical name: Solanum_ly
-ERROR: Sequences 18 and 20 have identical name: Oryza_sati
-ERROR: Sequences 18 and 21 have identical name: Oryza_sati
-ERROR: Sequences 19 and 22 have identical name: Sorghum_bi
-ERROR: Sequences 18 and 23 have identical name: Oryza_sati
-ERROR: Sequences 19 and 24 have identical name: Sorghum_bi
-ERROR: Sequences 1 and 26 have identical name: Arabidopsi
-ERROR: Sequences 2 and 27 have identical name: Brassica_r
-ERROR: Sequences 14 and 28 have identical name: Gossypium_
-ERROR: Sequences 15 and 29 have identical name: Theobroma_
-ERROR: Sequences 4 and 30 have identical name: Cucumis_sa
-ERROR: Sequences 17 and 31 have identical name: Medicago_t
-ERROR: Sequences 5 and 32 have identical name: Spinacia_o
-ERROR: Sequences 25 and 33 have identical name: Amborella_
-ERROR: Sequences 14 and 34 have identical name: Gossypium_
-ERROR: Sequences 15 and 35 have identical name: Theobroma_
-ERROR: Sequences 8 and 36 have identical name: Populus_tr
-ERROR: Sequences 4 and 37 have identical name: Cucumis_sa
-ERROR: Sequences 19 and 40 have identical name: Sorghum_bi
-ERROR: Sequences 19 and 41 have identical name: Sorghum_bi
-ERROR: Sequences 18 and 42 have identical name: Oryza_sati
-
-ERROR: Duplicate sequence names found: 28
-
-ERROR: Alignment check failed (see details above)!
-```
-So I think we need to put the fasta file with output=fasta for running the RAxML.
-
-### Inferring ML trees
-```
-(base) soyoungjung@Soyoungs-MacBook-Pro raxml-ng_v1 % ./raxml-ng --threads 2 --msa grouped_genes_aligned.fasta --model LG+G4 --prefix A1
-```
-It took a little while like 5-6ish mins. And the output was:
-```
-Optimized model parameters:
-
-   Partition 0: noname
-   Rate heterogeneity: GAMMA (4 cats, mean),  alpha: 0.406717 (ML),  weights&rates: (0.250000,0.017695) (0.250000,0.186756) (0.250000,0.738448) (0.250000,3.057100) 
-   Base frequencies (model): 0.079066 0.055941 0.041977 0.053052 0.012937 0.040767 0.071586 0.057337 0.022355 0.062157 0.099081 0.064600 0.022951 0.042302 0.044040 0.061197 0.053287 0.012066 0.034155 0.069147 
-   Substitution rates (model): 0.425093 0.276818 0.395144 2.489084 0.969894 1.038545 2.066040 0.358858 0.149830 0.395337 0.536518 1.124035 0.253701 1.177651 4.727182 2.139501 0.180717 0.218959 2.547870 0.751878 0.123954 0.534551 2.807908 0.363970 0.390192 2.426601 0.126991 0.301848 6.326067 0.484133 0.052722 0.332533 0.858151 0.578987 0.593607 0.314440 0.170887 5.076149 0.528768 1.695752 0.541712 1.437645 4.509238 0.191503 0.068427 2.145078 0.371004 0.089525 0.161787 4.008358 2.000679 0.045376 0.612025 0.083688 0.062556 0.523386 5.243870 0.844926 0.927114 0.010690 0.015076 0.282959 0.025548 0.017416 0.394456 1.240275 0.425860 0.029890 0.135107 0.037967 0.084808 0.003499 0.569265 0.640543 0.320627 0.594007 0.013266 0.893680 1.105251 0.075382 2.784478 1.143480 0.670128 1.165532 1.959291 4.128591 0.267959 4.813505 0.072854 0.582457 3.234294 1.672569 0.035855 0.624294 1.223828 1.080136 0.236199 0.257336 0.210332 0.348847 0.423881 0.044265 0.069673 1.807177 0.173735 0.018811 0.419409 0.611973 0.604545 0.077852 0.120037 0.245034 0.311484 0.008705 0.044261 0.296636 0.139538 0.089586 0.196961 1.739990 0.129836 0.268491 0.054679 0.076701 0.108882 0.366317 0.697264 0.442472 0.682139 0.508851 0.990012 0.584262 0.597054 5.306834 0.119013 4.145067 0.159069 4.273607 1.112727 0.078281 0.064105 1.033739 0.111660 0.232523 10.649107 0.137500 6.312358 2.592692 0.249060 0.182287 0.302936 0.619632 0.299648 1.702745 0.656604 0.023918 0.390322 0.748683 1.136863 0.049906 0.131932 0.185202 1.798853 0.099849 0.346960 2.020366 0.696175 0.481306 1.898718 0.094464 0.361819 0.165001 2.457121 7.803902 0.654683 1.338132 0.571468 0.095131 0.089613 0.296501 6.472279 0.248862 0.400547 0.098369 0.140825 0.245841 2.188158 3.151815 0.189510 0.249313 
-
-
-Final LogLikelihood: -16549.500959
-
-AIC score: 33275.001917 / AICc score: 33304.781385 / BIC score: 33664.104677
-Free parameters (model + branch lengths): 88
-
-Best ML tree saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/A1.raxml.bestTree
-All ML trees saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/A1.raxml.mlTrees
-Optimized model saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/A1.raxml.bestModel
-
-Execution log saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/A1.raxml.log
-
-Analysis started: 26-Apr-2021 23:19:22 / finished: 26-Apr-2021 23:25:19
-
-Elapsed time: 356.601 seconds
-```
-Out of the 20 trees, the best tree is saved to a file "A1.raxml.bestTree".
-There is a log file named "A1.raxml.log", with likelihoods of all 20 trees. Use "grep" to extract the 20 "logLikelihood" values. ```grep "logLikelihood:" A1.raxml.log```
-
-
-And then the output was like:
-```
-[00:00:14] ML tree search #1, logLikelihood: -16549.501235
-[00:00:33] ML tree search #2, logLikelihood: -16549.501462
-[00:00:54] ML tree search #3, logLikelihood: -16549.501173
-[00:01:13] ML tree search #4, logLikelihood: -16549.501105
-[00:01:36] ML tree search #5, logLikelihood: -16549.501031
-[00:01:57] ML tree search #6, logLikelihood: -16549.501188
-[00:02:17] ML tree search #7, logLikelihood: -16549.501024
-[00:02:39] ML tree search #8, logLikelihood: -16549.501169
-[00:02:57] ML tree search #9, logLikelihood: -16549.501438
-[00:03:19] ML tree search #10, logLikelihood: -16549.501035
-[00:03:34] ML tree search #11, logLikelihood: -16549.500961
-[00:03:48] ML tree search #12, logLikelihood: -16549.500959
-[00:04:02] ML tree search #13, logLikelihood: -16549.501014
-[00:04:16] ML tree search #14, logLikelihood: -16549.500978
-[00:04:34] ML tree search #15, logLikelihood: -16549.501034
-[00:04:51] ML tree search #16, logLikelihood: -16549.501087
-[00:05:05] ML tree search #17, logLikelihood: -16549.500974
-[00:05:23] ML tree search #18, logLikelihood: -16549.501051
-[00:05:40] ML tree search #19, logLikelihood: -16549.501043
-[00:05:56] ML tree search #20, logLikelihood: -16549.501032
-```
-The final LogLikelihood might be slightly different between different runs. That is because the starting tree used by "search" function is randomly selected. If you fix the random number seed in the command, e.g. "--seed 2". You would get same score between runs.
-```grep "Final" A1.raxml.log```
-
-```
-Final LogLikelihood: -16549.500959
-```
-
-### Bootstrapping and branch support
-In the previous step you generated ML trees from 20 distinct random starting trees, and output the tree with the best likelihood. Now we will get Bootstrapping support values for the trees.
-1. Run the bootstrap on "grouped_genes_aligned.fasta" file. By default setting, RAxML-NG employs MRE-based bootstopping test to automatically determine the sufficient number of BS replicates.
-```
-./raxml-ng  --bootstrap --threads 2 --msa grouped_genes_aligned.fasta --model LG+G4 --prefix B1
-```
-This took several hours. Output:
-```
-RAxML-NG v. 1.0.2 released on 22.02.2021 by The Exelixis Lab.
-Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
-Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
-Latest version: https://github.com/amkozlov/raxml-ng
-Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
-
-System: Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz, 4 cores, 8 GB RAM
-
-RAxML-NG was called at 26-Apr-2021 23:37:38 as follows:
-
-./raxml-ng --bootstrap --threads 2 --msa grouped_genes_aligned.fasta --model LG+G4 --prefix B1
-
-Analysis options:
-  run mode: Bootstrapping
-  start tree(s): 
-  bootstrap replicates: max: 1000 + bootstopping (autoMRE, cutoff: 0.030000)
-  random seed: 1619498258
-  tip-inner: OFF
-  pattern compression: ON
-  per-rate scalers: OFF
-  site repeats: ON
-  branch lengths: proportional (ML estimate, algorithm: NR-FAST)
-  SIMD kernels: AVX2
-  parallelization: coarse-grained (auto), PTHREADS (2 threads), thread pinning: OFF
-
-[00:00:00] Reading alignment from file: grouped_genes_aligned.fasta
-[00:00:00] Loaded alignment with 45 taxa and 615 sites
-
-Alignment comprises 1 partitions and 515 patterns
-
-Partition 0: noname
-Model: LG+G4m
-Alignment sites / patterns: 615 / 515
-Gaps: 16.03 %
-Invariant sites: 28.62 %
-
-
-NOTE: Binary MSA file created: B1.raxml.rba
-
-Parallelization scheme autoconfig: 1 worker(s) x 2 thread(s)
-
-Parallel reduction/worker buffer size: 1 KB  / 0 KB
-
-[00:00:00] Data distribution: max. partitions/sites/weight per thread: 1 / 258 / 20640
-[00:00:00] Data distribution: max. searches per worker: 1000
-[00:00:00] Starting bootstrapping analysis with 1000 replicates.
-
-Bootstrap trees saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/B1.raxml.bootstraps
-
-Execution log saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/B1.raxml.log
-
-Analysis started: 26-Apr-2021 23:37:38 / finished: 27-Apr-2021 01:25:45
-
-Elapsed time: 6486.932 seconds
-```
-
-### Map bootstrap support values to the best ML tree.
-Run the command ```./raxml-ng  --support --tree A1.raxml.bestTree --bs-trees B1.raxml.bootstraps --prefix C1```
-
-And the output was:
-```
-RAxML-NG v. 1.0.2 released on 22.02.2021 by The Exelixis Lab.
-Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
-Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
-Latest version: https://github.com/amkozlov/raxml-ng
-Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
-
-System: Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz, 4 cores, 8 GB RAM
-
-RAxML-NG was called at 27-Apr-2021 07:49:51 as follows:
-
-./raxml-ng --support --tree A1.raxml.bestTree --bs-trees B1.raxml.bootstraps --prefix C1
-
-Analysis options:
-  run mode: Compute bipartition support (Felsenstein Bootstrap)
-  start tree(s): user
-  random seed: 1619527791
-  SIMD kernels: AVX2
-  parallelization: coarse-grained (auto), PTHREADS (auto)
-
-Reading reference tree from file: A1.raxml.bestTree
-Reference tree size: 45
-
-Reading bootstrap trees from file: B1.raxml.bootstraps
-Loaded 400 trees with 45 taxa.
-
-Best ML tree with Felsenstein bootstrap (FBP) support values saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/C1.raxml.support
-
-Execution log saved to: /Users/soyoungjung/Documents/software/raxml-ng_v1/C1.raxml.log
-
-Analysis started: 27-Apr-2021 07:49:51 / finished: 27-Apr-2021 07:49:51
-
-Elapsed time: 0.062 seconds
-```
-
-After this step, I can get a tree file "C1.raxml.support", which is a tree file with bootstrapping support values. And check with ```less C1.raxml.support```.
-
+I downloaded Figtree here (https://github.com/rambaut/figtree/releases).
+
+## Plotting the tree
+I used the final file of ```/Users/soyoungjung/Documents/software/raxml-ng_v1/JTT.raxml.support``` to plot the tree using FigTree.
+Figtree has a GUI, so I can just click on different tabs and was able to get the tree.
 
