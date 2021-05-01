@@ -1,3 +1,8 @@
+# Datasets
+I obtained datasets of a total of 46 amino acid sequences from 17 taxa (16 different plat species and 1 bacterium), from my lab member which were used to generate phylogenetic tree published in Yokoyama et al., 2021 (https://academic.oup.com/plcell/advance-article/doi/10.1093/plcell/koaa042/6067414?login=true#227242737, found in SupplementalDataSet3). 
+
+I downloaded the SupplementalDataSet3 folder and moved the folder into my Botany563 folder. ```/Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3``` 
+
 # ClustalW
 ## Download the ClustalW
 Downloaded ClustalW file clustalw-2.1-macosx.dmg from here (http://www.clustal.org/clustal2/) and copied the folder into ```Document/Bot563```
