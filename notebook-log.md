@@ -1,5 +1,5 @@
 # Datasets
-I obtained datasets of a total of 46 amino acid sequences from 17 taxa (16 different plat species and 1 bacterium), from my lab member which were used to generate phylogenetic tree published in Yokoyama et al., 2021 (https://academic.oup.com/plcell/advance-article/doi/10.1093/plcell/koaa042/6067414?login=true#227242737, found in SupplementalDataSet3). 
+I obtained datasets of a total of 46 DHS amino acid sequences from 17 taxa (16 different plat species and 1 bacterium), which were used to generate phylogenetic tree published in Yokoyama et al., 2021 (https://academic.oup.com/plcell/advance-article/doi/10.1093/plcell/koaa042/6067414?login=true#227242737, found in SupplementalDataSet3). 
 
 I downloaded the SupplementalDataSet3 folder and moved the folder into my Botany563 folder. ```/Users/soyoungjung/Documents/Bot563/Bot563/SupplementalDataSet3``` 
 
